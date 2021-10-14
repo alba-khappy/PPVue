@@ -1,11 +1,13 @@
 <template lang="pug">
     #app
       Header
+      Footer
       
 </template>
 
 <script>
 import Header from '@/components/header.vue';
+import Footer from '@/components/footer.vue';
 
 export default {
   data() {
@@ -15,7 +17,8 @@ export default {
   methods: {
   },
   components: {
-    Header
+    Header,
+    Footer
   },
 };
 </script>

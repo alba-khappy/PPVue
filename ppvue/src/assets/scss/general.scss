@@ -6,7 +6,7 @@
 
 @font-face {
     font-family: "Raleway";
-    src: url("../fonts/Raleway-Regular.woff") format("woff"), url("../fonts/Raleway-Regular.ttf") format("truetype");
+    src: url("/ppvue/src/assets/fonts/Raleway-Regular.woff") format("woff"), url("/ppvue/src/assets/fonts/Raleway-Regular.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
 }
@@ -14,13 +14,13 @@
 @font-face {
     font-family: "Raleway";
     font-weight: 700;
-    src: url("./fonts/Raleway-Bold.woff2") format("woff2"), url("./fonts/Raleway-Bold.woff") format("woff");
+    src: url("/ppvue/src/assets/fonts/Raleway-Bold.woff2") format("woff2"), url("/ppvue/src/assets/fonts/Raleway-Bold.woff") format("woff");
 }
 
 @font-face {
     font-family: "Raleway";
     font-weight: 900;
-    src: url("./fonts/Raleway-Black.woff2") format("woff2"), url("./fonts/Raleway-Black.woff") format("woff");
+    src: url("/ppvue/src/assets/fonts//Raleway-Black.woff2") format("woff2"), url("/ppvue/src/assets/fonts/Raleway-Black.woff") format("woff");
 }
 
 $blueColorText: #0d5adc;
