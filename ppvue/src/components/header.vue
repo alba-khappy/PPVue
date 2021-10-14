@@ -1,0 +1,93 @@
+<template lang="pug">
+header.header 
+    div.container.header--container 
+    a(href="").logo-wrapper
+        include ../images/logo.svg
+        p.header--logo-p.logo-p ПОСТУПАЙ ПРАВИЛЬНО
+    a(href="#").header--entrance-a
+        p.header--entrance-p Войти
+        include header-icon.pug
+</template>
+
+<style lang="scss">
+@import "../assets/scss/general.scss";
+.header {
+    border-bottom: 1px solid #e0e4e7;
+}
+
+.header--container {
+    @include displayFlexSpaceBetween;
+    align-items: center;
+    padding: 24px 40px;
+}
+
+.logo-wrapper {
+    display: grid;
+    grid-template-columns: 55px 245px;
+}
+
+.header--logo-svg {
+    width: 40px;
+    height: 32px;
+}
+
+.logo-p {
+    align-self: center;
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    line-height: 21px;
+}
+
+.header--logo-p {
+    color: $blueColorText;
+    align-self: center;
+}
+
+.header--entrance-a {
+    display: grid;
+    grid-template-columns: 60px 32px;
+    align-items: center;
+}
+
+.header--entrance-svg {
+    width: 32px;
+    height: 32px;
+}
+
+.header--entrance-p {
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $blackColorText;
+}
+
+@media (max-width: 375px) {
+
+    /*header*/
+    .header--container {
+        padding: 25px 15px;
+    }
+
+    .header--logo-p, .header--entrance-p {
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    .logo-wrapper {
+        grid-template-columns: 45px 200px;
+    }
+
+    .logo-wrapper > svg {
+        width: 30px;
+    }
+
+    .header--entrance-a > svg {
+        width: 24px;
+        height: 24px;
+    }
+
+}
+</style>
