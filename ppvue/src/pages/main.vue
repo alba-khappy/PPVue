@@ -53,9 +53,7 @@ div
 
   section.about
     .container.about--container#about
-        ul.about__list
-            li.about__list-item(v-for='todo in todos')
-                about-a(:about-img='todo.src' :about-text='todo.text')
+        About
 
       
   section.admission
@@ -233,11 +231,16 @@ div
 
 
 <script>
+import About from '@/components/about.vue';
+
 export default {
   name: "main",
   data() {
     return {};
   },
+  components: {
+    About
+  }
 };
 
 </script>

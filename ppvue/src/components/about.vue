@@ -18,11 +18,11 @@ var about = new Vue({
     data: {
       todos: [
         { text: 'Государственные вузы',
-          src: './hh.png'},
+          src: '../assets/search-img1.png'},
         { text: 'Направления подготовки',
-          src: './hh.png'},
+          src: '../assets/search-img2.png'},
         { text: 'Правила поступления',
-          src: './hh.png'}
+          src: '../assets/search-img3.png'}
       ]
     }
   });
