@@ -1,8 +1,8 @@
 <template lang="pug">
     #about
         ul.about__list
-            li.about__list-item(v-for='todo in todos')
-                about-a(:about-img='todo.src' :about-text='todo.text')
+            li.about__list-item(v-for='(item,index) in items')
+                about-a(:about-img='item.src' :about-text='item.text')
     
 </template>
 
@@ -15,19 +15,19 @@ Vue.component('about-a', {
 
 var about = new Vue({
     el: '#about',
-    data: {
-      todos: [
-        { text: 'Государственные вузы',
-          src: '../assets/search-img1.png'},
-        { text: 'Направления подготовки',
-          src: '../assets/search-img2.png'},
-        { text: 'Правила поступления',
-          src: '../assets/search-img3.png'}
-      ]
+    data: function () {
+        return {
+            items: [
+                { text: 'Государственные вузы',
+                src: '../assets/search-img1.png'},
+                { text: 'Направления подготовки',
+                src: '../assets/search-img2.png'},
+                { text: 'Правила поступления',
+                src: '../assets/search-img3.png'}
+            ]
+        }
     }
   });
-
-
 </script>
 
 <style lang="scss">

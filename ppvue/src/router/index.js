@@ -6,8 +6,8 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/',
-        name: 'main',
-        component: () => import("../pages/main.vue")
+        name: 'sections',
+        component: () => import("../pages/sections.vue")
     }
 ]
 

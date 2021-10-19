@@ -60,49 +60,49 @@ div
     .container.admission--container
       h2.h2.admission--h2 Как поступить в вуз
       .admission--grid
-        .admission__grid-item
+        div
           .admission__grid-img.admission__grid-img-1.admission__grid--border
           .admission__p-wrapper
             p.admission__grid-p--blue 1
             p.admission__grid-p <span class="admission__grid-p--blue">Выберите</span> специальность
 
-        .admission__grid-item
+        div
           .admission__grid-img.admission__grid-img-2.admission__grid--border
           .admission__p-wrapper
             p.admission__grid-p--blue 2
             p.admission__grid-p <span class="admission__grid-p--blue">Выберите</span> вуз
 
-        .admission__grid-item
+        div
           .admission__grid-img.admission__grid-img-3
           .admission__p-wrapper
             p.admission__grid-p--blue 3
             p.admission__grid-p <span class="admission__grid-p--blue">Сдайте</span> ЕГЭ*
 
-        .admission__grid-item
+        div
           .admission__grid-img.admission__grid-img-4.admission__grid--border
           .admission__p-wrapper
             p.admission__grid-p--blue 4
             p.admission__grid-p <span class="admission__grid-p--blue">Подайте</span> заявление о приеме в вуз
 
-        .admission__grid-item
+        div
           .admission__grid-img.admission__grid-img-5
           .admission__p-wrapper
             p.admission__grid-p--blue 5
             p.admission__grid-p <span class="admission__grid-p--blue">Сдайте</span> вступительные испытания
 
-        .admission__grid-item
+        div
           .admission__grid-img.admission__grid-img-6.admission__grid--border
           .admission__p-wrapper
             p.admission__grid-p--blue 6
             p.admission__grid-p <span class="admission__grid-p--blue">Подайте</span> заявление о согласии на зачисление в вуз
 
-        .admission__grid-item
+        div
           .admission__grid-img.admission__grid-img-7.admission__grid--border
           .admission__p-wrapper
             p.admission__grid-p--blue 7
             p.admission__grid-p <span class="admission__grid-p--blue">Принесите</span> оригиналы документа об образовании
 
-        .admission__grid-item
+        div
           .admission__grid-img.admission__grid-img-8
           .admission__p-wrapper
             p.admission__grid-p--blue 8
@@ -234,7 +234,7 @@ div
 import About from '@/components/about.vue';
 
 export default {
-  name: "main",
+  name: "sections",
   data() {
     return {};
   },
