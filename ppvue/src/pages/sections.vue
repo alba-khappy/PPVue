@@ -70,14 +70,14 @@ div
       
       .swiper.swiper-3
         #newsList.swiper-wrapper.news__list 
-          .swiper-slide.news__list-item(v-for='(news,index) in allNews')
+          .news__list-item(v-for='(news,index) in allNews')
             a.news__a(href="")
-              img(:src="allNews.newsImg")
+              img(:src="getImage(news)")
               .news__description
                 .news__wrapper--description
-                  h3.news__description--h3 {{allNews.newsH3}}
-                  p.news__description--p {{allNews.newsP}}
-                .news__date {{allNews.newsDate}}
+                  h3.news__description--h3 {{news.newsH3}}
+                  p.news__description--p {{news.newsP}}
+                .news__date {{news.newsDate}}
 
 
   section.services
@@ -85,17 +85,9 @@ div
       h2.h2.services--h2 Вам может быть интересно
       .swiper.swiper-4
         #servicesList.swiper-wrapper.services__list 
-          .swiper-slide.services__list-item
-            a.services__a.services__a-1(href="") 
-            p.services__p Онлайн-сервис самопроверки
-
-          .swiper-slide.services__list-item
-            a.services__a.services__a-2(href="") 
-            p.services__p Проверка результатов ЕГЭ
-
-          .swiper-slide.services__list-item
-            a.services__a.services__a-3(href="") 
-            p.services__p Официальный информационный портал ЕГЭ
+          .services__list-item(v-for='(service,index) in servicesArray')
+            a.services__a.services__a-1(:src="service.servicesImg", href="") 
+            p.services__p {{service.servicesP}}
 
         .swiper-button-next.swiper-button-next-4
         .swiper-button-prev.swiper-button-prev-4 
@@ -178,9 +170,29 @@ export default {
           newsP: "Тут будет подзаголовокТут будет подзаголовокТут будет подзаголовок",
           newsDate: "29.01.2021",
         }
+      ],
+      servicesArray: [
+        {
+          servicesImg: "./assets/services1.png",
+          servicesP: "Онлайн-сервис самопроверки",
+        },
+        {
+          servicesImg: "./assets/services2.png",
+          servicesP: "Проверка результатов ЕГЭ",
+        },
+        {
+          servicesImg: "./assets/services3.png",
+          servicesP: "Официальный информационный портал ЕГЭ",
+        },
       ]
     };
   },
+
+  methods: {
+    getImage(news) {
+      return require(news.newsImg);
+  },
+
   components: {
     About,
     Admission
@@ -765,6 +777,11 @@ export default {
 
 .services--container {
   padding: 75px 165px 90px;
+}
+
+.services__list-item {
+  display: flex;
+  flex-direction: column;
 }
 
 .services--h2 {
