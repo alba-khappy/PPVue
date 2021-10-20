@@ -191,6 +191,7 @@ export default {
   methods: {
     getImage(news) {
       return require(news.newsImg);
+    }
   },
 
   components: {
