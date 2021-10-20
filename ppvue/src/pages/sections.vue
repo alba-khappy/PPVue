@@ -52,121 +52,14 @@ div
     //-         .swiper-pagination.swiper-pagination-1
 
   section.about
-    .container.about--container#about
-        About
+    .container.about--container
+      About(:items="items")
 
-      
   section.admission
     .container.admission--container
       h2.h2.admission--h2 Как поступить в вуз
-      .admission--grid
-        div
-          .admission__grid-img.admission__grid-img-1.admission__grid--border
-          .admission__p-wrapper
-            p.admission__grid-p--blue 1
-            p.admission__grid-p <span class="admission__grid-p--blue">Выберите</span> специальность
+        Admission(:admissions="admissions")
 
-        div
-          .admission__grid-img.admission__grid-img-2.admission__grid--border
-          .admission__p-wrapper
-            p.admission__grid-p--blue 2
-            p.admission__grid-p <span class="admission__grid-p--blue">Выберите</span> вуз
-
-        div
-          .admission__grid-img.admission__grid-img-3
-          .admission__p-wrapper
-            p.admission__grid-p--blue 3
-            p.admission__grid-p <span class="admission__grid-p--blue">Сдайте</span> ЕГЭ*
-
-        div
-          .admission__grid-img.admission__grid-img-4.admission__grid--border
-          .admission__p-wrapper
-            p.admission__grid-p--blue 4
-            p.admission__grid-p <span class="admission__grid-p--blue">Подайте</span> заявление о приеме в вуз
-
-        div
-          .admission__grid-img.admission__grid-img-5
-          .admission__p-wrapper
-            p.admission__grid-p--blue 5
-            p.admission__grid-p <span class="admission__grid-p--blue">Сдайте</span> вступительные испытания
-
-        div
-          .admission__grid-img.admission__grid-img-6.admission__grid--border
-          .admission__p-wrapper
-            p.admission__grid-p--blue 6
-            p.admission__grid-p <span class="admission__grid-p--blue">Подайте</span> заявление о согласии на зачисление в вуз
-
-        div
-          .admission__grid-img.admission__grid-img-7.admission__grid--border
-          .admission__p-wrapper
-            p.admission__grid-p--blue 7
-            p.admission__grid-p <span class="admission__grid-p--blue">Принесите</span> оригиналы документа об образовании
-
-        div
-          .admission__grid-img.admission__grid-img-8
-          .admission__p-wrapper
-            p.admission__grid-p--blue 8
-            p.admission__grid-p <span class="admission__grid-p--blue">Пройдите</span> медицинское обследование*
-
-      .swiper.swiper-2 
-        .swiper-wrapper
-          .swiper-slide
-            .admission__grid-item.admission__grid-item-1
-              .admission__grid-img.admission__grid-img-1.admission__grid--border
-              .admission__p-wrapper
-                p.admission__grid-p--blue 1
-                p.admission__grid-p <span class="admission__grid-p--blue">Выберите</span> специальность
-
-          .swiper-slide
-            .admission__grid-item.admission__grid-item-2
-              .admission__grid-img.admission__grid-img-2.admission__grid--border
-              .admission__p-wrapper
-                p.admission__grid-p--blue 2
-                p.admission__grid-p <span class="admission__grid-p--blue">Выберите</span> вуз
-
-          .swiper-slide
-            .admission__grid-item.admission__grid-item-3
-              .admission__grid-img.admission__grid-img-3
-              .admission__p-wrapper
-                p.admission__grid-p--blue 3
-                p.admission__grid-p <span class="admission__grid-p--blue">Сдайте</span> ЕГЭ*
-
-          .swiper-slide
-            .admission__grid-item.admission__grid-item-4
-              .admission__grid-img.admission__grid-img-4.admission__grid--border
-              .admission__p-wrapper
-                p.admission__grid-p--blue 4
-                p.admission__grid-p <span class="admission__grid-p--blue">Подайте</span> заявление о приеме в вуз
-
-          .swiper-slide
-            .admission__grid-item.admission__grid-item-5
-              .admission__grid-img.admission__grid-img-5
-              .admission__p-wrapper
-                p.admission__grid-p--blue 5
-                p.admission__grid-p <span class="admission__grid-p--blue">Сдайте</span> вступительные испытания
-
-          .swiper-slide
-            .admission__grid-item.admission__grid-item-6
-              .admission__grid-img.admission__grid-img-6.admission__grid--border
-              .admission__p-wrapper
-                p.admission__grid-p--blue 6
-                p.admission__grid-p <span class="admission__grid-p--blue">Подайте</span> заявление о согласии на зачисление в вуз
-
-          .swiper-slide
-            .admission__grid-item.admission__grid-item-7
-              .admission__grid-img.admission__grid-img-7.admission__grid--border
-              .admission__p-wrapper
-                p.admission__grid-p--blue 7
-                p.admission__grid-p <span class="admission__grid-p--blue">Принесите</span> оригиналы документа об образовании
-
-          .swiper-slide
-            .admission__grid-item.admission__grid-item-8
-              .admission__grid-img.admission__grid-img-8
-              .admission__p-wrapper
-                p.admission__grid-p--blue 8
-                p.admission__grid-p <span class="admission__grid-p--blue">Пройдите</span> медицинское обследование*
-      .swiper-pagination.swiper-pagination-2
-      p.admission--p-additional-option *При необходимости
 
   section.news
     .container.news--container
@@ -174,38 +67,18 @@ div
         h2.h2.news--h2 Новости
         a(href="#") Все новости
 
-      .swiper-button--wrapper-3
-        .swiper-button-next.swiper-button-next-3
-        .swiper-button-prev.swiper-button-prev-3
+      
       .swiper.swiper-3
         #newsList.swiper-wrapper.news__list 
-          .swiper-slide.news__list-item
+          .swiper-slide.news__list-item(v-for='(news,index) in allNews')
             a.news__a(href="")
-              img(src="../assets/news1.jpg", alt="новость1")
+              img(:src="allNews.newsImg")
               .news__description
                 .news__wrapper--description
-                  h3.news__description--h3 Проект расписания ГИА-11
-                  p.news__description--p Тут будет подзаголовокТут будет подзаголовокТут будет подзаголовок
-                .news__date 06.02.2021
+                  h3.news__description--h3 {{allNews.newsH3}}
+                  p.news__description--p {{allNews.newsP}}
+                .news__date {{allNews.newsDate}}
 
-          .swiper-slide.news__list-item
-            a.news__a(href="")
-              img(src="../assets/news2.jpg", alt="новость1")
-              .news__description
-                .news__wrapper--description
-                  h3.news__description--h3 Проведение основного государственного экзамена (ОГЭ) по предметам по выбору в 2021 г.
-                  p.news__description--p Тут будет подзаголовок
-                .news__date 29.01.2021
-
-          .swiper-slide.news__list-item
-            a.news__a(href="")
-              img(src="../assets/news3.jpg", alt="новость1")
-              .news__description
-                .news__wrapper--description
-                  h3.news__description--h3 Итоговое сочинение
-                  p.news__description--p Тут будет подзаголовокТут будет подзаголовокТут будет подзаголовок
-                .news__date 29.01.2021
-      .swiper-pagination.swiper-pagination-3
 
   section.services
     .container.services--container
@@ -231,18 +104,88 @@ div
 
 
 <script>
-import About from '@/components/about.vue';
+import About from "@/components/about.vue";
+import Admission from "@/components/admission.vue";
 
 export default {
   name: "sections",
   data() {
-    return {};
+    return {
+      items: [
+        { text: "Государственные вузы", src: "./assets/about1.svg" },
+        { text: "Направления подготовки", src: "./assets/about2.svg" },
+        { text: "Правила поступления", src: "./assets/about3.svg" },
+      ],
+      admissions: [
+        {
+          index: "1",
+          src: "./assets/adm-img1.png",
+          text: "Выберите специальность",
+        },
+        {
+          index: "2",
+          src: "./assets/adm-img2.png",
+          text: "Выберите ВУЗ",
+        },
+        {
+          index: "3",
+          src: "./assets/adm-img3.png",
+          text: "Сдайте ЕГЭ*",
+        },
+        {
+          index: "4",
+          src: "./assets/adm-img4.png",
+          text: "Подайте заявление о приеме в вуз",
+        },
+        {
+          index: "5",
+          src: "./assets/adm-img5.png",
+          text: "Сдайте вступительные испытания",
+        },
+        {
+          index: "6",
+          src: "./assets/adm-img6.png",
+          text: "Подайте заявление о согласии на зачисление в вуз",
+        },
+        {
+          index: "7",
+          src: "./assets/adm-img7.png",
+          text: "Принесите оригиналы документа об образовании"
+        },
+        {
+          index: "8",
+          src: "./assets/adm-img8.png",
+          text: "Пройдите медицинское обследование",
+        },
+        
+      ],
+      allNews: [
+        {
+          newsImg: "../assets/news1.jpg",
+          newsH3: "Проект расписания ГИА-11",
+          newsP: "Тут будет подзаголовокТут будет подзаголовок",
+          newsDate: "06.02.2021",
+        },
+        {
+          newsImg: "./assets/adm-img8.png",
+          newsH3: "Проведение основного государственного экзамена (ОГЭ) по предметам по выбору в 2021 г.",
+          newsP: "Тут будет подзаголовок",
+          newsDate: "29.01.2021",
+        },
+        {
+          newsImg: "./assets/adm-img8.png",
+          newsH3: "Итоговое сочинение",
+          newsP: "Тут будет подзаголовокТут будет подзаголовокТут будет подзаголовок",
+          newsDate: "29.01.2021",
+        }
+      ]
+    };
   },
   components: {
-    About
-  }
+    About,
+    Admission
+  },
 };
-
 </script>
 
 
@@ -279,7 +222,7 @@ export default {
 //search
 
 .search--container {
-    display: flex;
+  display: flex;
   height: 400px;
   overflow: hidden;
   padding: 0 165px 0 150px;
@@ -304,7 +247,7 @@ export default {
   grid-template-columns: 1fr 370px;
   align-items: end;
   position: relative;
-      min-width: 100%;
+  min-width: 100%;
 }
 
 .search--h1 {
@@ -471,76 +414,6 @@ export default {
   padding: 60px 165px;
 }
 
-.about__list {
-  display: flex;
-}
-
-.about__a {
-  display: grid;
-  grid-template-columns: 60px 270px;
-  align-items: center;
-  box-shadow: 0px 16px 16px #dde6eb;
-  padding: 20px 0px 20px 20px;
-  color: $blueColorText;
-  background-color: $whiteColor;
-
-  &:hover {
-    background-color: $blueColorText;
-    color: $whiteColor;
-  }
-
-  &:hover > svg > path {
-    fill: $whiteColor;
-  }
-}
-
-.about__a > svg > path {
-  fill: $blueColorText;
-}
-
-.about__img {
-  width: 40px;
-  height: 40px;
-}
-
-.about__p {
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 23px;
-}
-
-@media (max-width: 1339px) {
-  .about__list {
-    flex-direction: column;
-  }
-
-  .about__list-item:not(:last-child) {
-    margin-bottom: 30px;
-  }
-}
-
-@media (max-width: 768px) {
-  .about__list-item:not(:last-child) {
-    margin-bottom: 30px;
-  }
-}
-
-@media (max-width: 768px) and (min-width: 376px) {
-  .about--container {
-    padding: 60px 40px 60px;
-  }
-
-  .about__a {
-    grid-template-columns: 74px 280px;
-    padding: 20px 0px 20px 70px;
-  }
-}
-
-@media (max-width: 375px) {
-  .about--container {
-    padding: 60px 10px;
-  }
-}
 //admission
 
 .admission--container {
@@ -578,31 +451,6 @@ export default {
   height: 100px;
   border-radius: 100px;
   margin-bottom: 30px;
-}
-
-.admission__grid-img-1 {
-  background-image: url("../assets/adm-img1.png");
-}
-.admission__grid-img-2 {
-  background-image: url("../assets/adm-img2.png");
-}
-.admission__grid-img-3 {
-  background-image: url("../assets/adm-img3.png");
-}
-.admission__grid-img-4 {
-  background-image: url("../assets/adm-img4.png");
-}
-.admission__grid-img-5 {
-  background-image: url("../assets/adm-img5.png");
-}
-.admission__grid-img-6 {
-  background-image: url("../assets/adm-img6.png");
-}
-.admission__grid-img-7 {
-  background-image: url("../assets/adm-img7.png");
-}
-.admission__grid-img-8 {
-  background-image: url("../assets/adm-img8.png");
 }
 
 .admission__grid-p {

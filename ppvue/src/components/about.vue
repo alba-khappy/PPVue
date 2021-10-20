@@ -1,33 +1,29 @@
 <template lang="pug">
-    #about
         ul.about__list
             li.about__list-item(v-for='(item,index) in items')
-                about-a(:about-img='item.src' :about-text='item.text')
-    
+                a.about__a(href="#")
+                  img(:src="item.src")
+                  p {{item.text}}
+     
 </template>
 
 <script>
+export default {
 
-Vue.component('about-a', {
-  props: ['aboutImg', 'aboutText'],
-  template: '<a href=""  class="about__a"><img :src="aboutImg"><p> {{aboutText}}</p></a>'
-});
-
-var about = new Vue({
-    el: '#about',
+    props: {
+        items: {
+            type: Array,
+            default() {
+                return []
+            }
+        }
+    },
     data: function () {
         return {
-            items: [
-                { text: 'Государственные вузы',
-                src: '../assets/search-img1.png'},
-                { text: 'Направления подготовки',
-                src: '../assets/search-img2.png'},
-                { text: 'Правила поступления',
-                src: '../assets/search-img3.png'}
-            ]
+
         }
     }
-  });
+  };
 </script>
 
 <style lang="scss">
@@ -45,6 +41,10 @@ var about = new Vue({
 
 .about__list-item {
   list-style-type: none;
+
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
 }
 
 .about__a {
@@ -55,6 +55,39 @@ var about = new Vue({
     padding: 20px 0px 20px 20px;
     color: #0d5adc;
     background-color: #ffffff;
+}
+
+@media (max-width: 1339px) {
+  .about__list {
+    flex-direction: column;
+  }
+
+  .about__list-item:not(:last-child) {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about__list-item:not(:last-child) {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 376px) {
+  .about--container {
+    padding: 60px 40px 60px;
+  }
+
+  .about__a {
+    grid-template-columns: 74px 280px;
+    padding: 20px 0px 20px 70px;
+  }
+}
+
+@media (max-width: 375px) {
+  .about--container {
+    padding: 60px 10px;
+  }
 }
 
 </style>
