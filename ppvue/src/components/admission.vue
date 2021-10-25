@@ -1,11 +1,14 @@
 <template lang="pug">
         ul.admission--grid
             li.admission--item(v-for='admission in admissions')
-                div.admission__grid-img.admission__grid-img-1.admission__grid--border(:style="{ backgroundImage: 'url(' + admission.src + ')' }")
+                div.admission__grid-img.admission__grid-img-1.admission__grid--border
+                    img(:src="require(`../assets/${admission.src}`)")
                 div.admission__p-wrapper
                     p.admission__grid-p--blue {{admission.index}}
                     p.admission__grid-p {{admission.text}}
                     //- img(:src="require(`../assets/${news.newsImg}`)")
+                    
+                    
 
 </template>
 

@@ -55,6 +55,18 @@ export default {
     padding: 20px 0px 20px 20px;
     color: #0d5adc;
     background-color: #ffffff;
+
+    &:hover {
+      background-color: #0d5adc;
+      color: #ffffff;
+      box-shadow: 0px 16px 16px #acafb1;
+
+      img>svg>path{
+        fill: #ffffff !important;
+      }
+
+    }
+
 }
 
 @media (max-width: 1339px) {

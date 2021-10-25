@@ -21,35 +21,10 @@ div
           span.search--h1-highlight.search--h1-highlight-4 &nbsp;возможности
         a.search--a(href="#") Начать поиск
         img.search__pic(src="../assets/search-img3.png", alt="illustration")
-    //- div.container.search--container
-    //-     .swiper.swiper-1
-    //-         .swiper-wrapper
-    //-             .swiper-slide
-    //-                 .swiper-slide--style
-    //-                     h1.search--h1 &nbsp;Выбирай лучшее - 
-    //-                         div.search--h1-highlight.search--h1-highlight-1 
-    //-                             p &nbsp;поступай правильно
-    //-                     a(href="#").search--a Начать поиск
-    //-                     img(src="../assets/search-img1.png", alt="illustration").search__pic
-
-    //-             .swiper-slide 
-    //-                 .swiper-slide--style
-    //-                     h1.search--h1 
-    //-                         div.search--h1-highlight.search--h1-highlight-2 &nbsp;Твой билет 
-    //-                         div в будущее
-    //-                     a(href="#").search--a Начать поиск
-    //-                     img(src="../assets/search-img2.png", alt="illustration").search__pic
-
-    //-             .swiper-slide 
-    //-                 .swiper-slide--style
-    //-                     h1.search--h1 
-    //-                         span Открывай 
-    //-                         span.search--h1-highlight.search--h1-highlight-3 новые 
-    //-                         span.search--h1-highlight.search--h1-highlight-4 &nbsp;возможности
-    //-                     a(href="#").search--a Начать поиск
-    //-                     img(src="../assets/search-img3.png", alt="illustration").search__pic
-
-    //-         .swiper-pagination.swiper-pagination-1
+    .swiper__buttons
+      #search__swiper-button--1.swiper-button
+      #search__swiper-button--2.swiper-button
+      #search__swiper-button--3.swiper-button
 
   section.about
     .container.about--container
@@ -60,41 +35,34 @@ div
       h2.h2.admission--h2 Как поступить в вуз
         Admission(:admissions="admissions")
 
-
   section.news
     .container.news--container
       .news__heading
         h2.h2.news--h2 Новости
         a(href="#") Все новости
 
-      
       .swiper.swiper-3
         #newsList.swiper-wrapper.news__list 
-          .news__list-item(v-for='(news,index) in allNews')
+          .news__list-item(v-for="(news, index) in allNews")
             a.news__a(href="")
               img(:src="require(`../assets/${news.newsImg}`)")
               .news__description
                 .news__wrapper--description
-                  h3.news__description--h3 {{news.newsH3}}
-                  p.news__description--p {{news.newsP}}
-                .news__date {{news.newsDate}}
-
+                  h3.news__description--h3 {{ news.newsH3 }}
+                  p.news__description--p {{ news.newsP }}
+                .news__date {{ news.newsDate }}
 
   section.services
     .container.services--container
       h2.h2.services--h2 Вам может быть интересно
       .swiper.swiper-4
         #servicesList.swiper-wrapper.services__list 
-          .services__list-item(v-for='(service,index) in servicesArray')
-            a.services__a(:style="{ backgroundImage: `url(../assets/${service.servicesImg})` }", href="") 
-            p.services__p {{service.servicesP}}
-
-            //- img(:src="require(`../assets/${service.servicesImg}`)")
-            //- <div :style="{'background-image': `url(${require('./link/to/image.png')})`}">
-
-        .swiper-button-next.swiper-button-next-4
-        .swiper-button-prev.swiper-button-prev-4 
-      .swiper-pagination.swiper-pagination-4
+          .services__list-item(v-for="(service, index) in servicesArray")
+            a.services__a(
+              :style="{ backgroundImage: 'url(' + require('../assets/' + service.servicesImg) + ')' }",
+              href=""
+            ) 
+            p.services__p {{ service.servicesP }}
 </template>
 
 
@@ -145,14 +113,13 @@ export default {
         {
           index: "7",
           src: "adm-img7.png",
-          text: "Принесите оригиналы документа об образовании"
+          text: "Принесите оригиналы документа об образовании",
         },
         {
           index: "8",
           src: "adm-img8.png",
           text: "Пройдите медицинское обследование",
         },
-        
       ],
       allNews: [
         {
@@ -163,16 +130,18 @@ export default {
         },
         {
           newsImg: "news2.jpg",
-          newsH3: "Проведение основного государственного экзамена (ОГЭ) по предметам по выбору в 2021 г.",
+          newsH3:
+            "Проведение основного государственного экзамена (ОГЭ) по предметам по выбору в 2021 г.",
           newsP: "Тут будет подзаголовок",
           newsDate: "29.01.2021",
         },
         {
           newsImg: "news3.jpg",
           newsH3: "Итоговое сочинение",
-          newsP: "Тут будет подзаголовокТут будет подзаголовокТут будет подзаголовок",
+          newsP:
+            "Тут будет подзаголовокТут будет подзаголовокТут будет подзаголовок",
           newsDate: "29.01.2021",
-        }
+        },
       ],
       servicesArray: [
         {
@@ -187,13 +156,13 @@ export default {
           servicesImg: "services3.png",
           servicesP: "Официальный информационный портал ЕГЭ",
         },
-      ]
+      ],
     };
   },
 
   components: {
     About,
-    Admission
+    Admission,
   },
 };
 </script>
@@ -229,26 +198,44 @@ export default {
   align-items: center;
 }
 
+.swiper__buttons {
+  display: flex;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+}
+
+.swiper-button {
+  width: 8px;
+  height: 8px;
+  background-color: #c4c4c4;
+  border-radius: 20px;
+
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  &:active {
+    background-color: #0d5adc;
+  }
+}
+
 //search
+
+.search {
+  position: relative;
+}
 
 .search--container {
   display: flex;
-  height: 400px;
   overflow: hidden;
-  padding: 0 165px 0 150px;
+  margin: 0 auto;
 }
 
 .swiper-container {
   width: 100%;
   height: 100%;
-}
-
-.mySwiper1 {
-  .swiper-slide {
-    width: 100%;
-    max-width: 1400px;
-    height: auto;
-  }
 }
 
 .swiper-slide--style {
@@ -258,6 +245,7 @@ export default {
   align-items: end;
   position: relative;
   min-width: 100%;
+  padding: 0 150px;
 }
 
 .search--h1 {
@@ -308,6 +296,7 @@ export default {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-left: 15px;
+  white-space: nowrap;
 }
 
 .search__pic {
@@ -454,8 +443,9 @@ export default {
 }
 
 .admission__grid-img {
-  background-repeat: no-repeat;
-  background-position: center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: $lightBlue;
   width: 100px;
   height: 100px;
@@ -645,6 +635,10 @@ export default {
 
 .news__list-item {
   margin-bottom: 30px;
+
+  &:hover {
+    box-shadow: 0px 16px 16px #acafb1;
+  }
 }
 
 .news__a {
@@ -826,6 +820,12 @@ export default {
 
   .services__list-item {
     margin: 10px;
+  }
+}
+
+@media (max-width: 1339px) {
+  .about__list-item:not(:last-child) {
+    margin-right: 0;
   }
 }
 
