@@ -5,6 +5,7 @@
                 div.admission__p-wrapper
                     p.admission__grid-p--blue {{admission.index}}
                     p.admission__grid-p {{admission.text}}
+                    //- img(:src="require(`../assets/${news.newsImg}`)")
 
 </template>
 

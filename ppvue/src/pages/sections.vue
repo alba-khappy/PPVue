@@ -72,7 +72,7 @@ div
         #newsList.swiper-wrapper.news__list 
           .news__list-item(v-for='(news,index) in allNews')
             a.news__a(href="")
-              img(:src="getImage(news)")
+              img(:src="require(`../assets/${news.newsImg}`)")
               .news__description
                 .news__wrapper--description
                   h3.news__description--h3 {{news.newsH3}}
@@ -86,8 +86,11 @@ div
       .swiper.swiper-4
         #servicesList.swiper-wrapper.services__list 
           .services__list-item(v-for='(service,index) in servicesArray')
-            a.services__a.services__a-1(:src="service.servicesImg", href="") 
+            a.services__a(:style="{ backgroundImage: `url(../assets/${service.servicesImg})` }", href="") 
             p.services__p {{service.servicesP}}
+
+            //- img(:src="require(`../assets/${service.servicesImg}`)")
+            //- <div :style="{'background-image': `url(${require('./link/to/image.png')})`}">
 
         .swiper-button-next.swiper-button-next-4
         .swiper-button-prev.swiper-button-prev-4 
@@ -104,68 +107,68 @@ export default {
   data() {
     return {
       items: [
-        { text: "Государственные вузы", src: "./assets/about1.svg" },
-        { text: "Направления подготовки", src: "./assets/about2.svg" },
-        { text: "Правила поступления", src: "./assets/about3.svg" },
+        { text: "Государственные вузы", src: "about1.svg" },
+        { text: "Направления подготовки", src: "about2.svg" },
+        { text: "Правила поступления", src: "about3.svg" },
       ],
       admissions: [
         {
           index: "1",
-          src: "./assets/adm-img1.png",
+          src: "adm-img1.png",
           text: "Выберите специальность",
         },
         {
           index: "2",
-          src: "./assets/adm-img2.png",
+          src: "adm-img2.png",
           text: "Выберите ВУЗ",
         },
         {
           index: "3",
-          src: "./assets/adm-img3.png",
+          src: "adm-img3.png",
           text: "Сдайте ЕГЭ*",
         },
         {
           index: "4",
-          src: "./assets/adm-img4.png",
+          src: "adm-img4.png",
           text: "Подайте заявление о приеме в вуз",
         },
         {
           index: "5",
-          src: "./assets/adm-img5.png",
+          src: "adm-img5.png",
           text: "Сдайте вступительные испытания",
         },
         {
           index: "6",
-          src: "./assets/adm-img6.png",
+          src: "adm-img6.png",
           text: "Подайте заявление о согласии на зачисление в вуз",
         },
         {
           index: "7",
-          src: "./assets/adm-img7.png",
+          src: "adm-img7.png",
           text: "Принесите оригиналы документа об образовании"
         },
         {
           index: "8",
-          src: "./assets/adm-img8.png",
+          src: "adm-img8.png",
           text: "Пройдите медицинское обследование",
         },
         
       ],
       allNews: [
         {
-          newsImg: "../assets/news1.jpg",
+          newsImg: "news1.jpg",
           newsH3: "Проект расписания ГИА-11",
           newsP: "Тут будет подзаголовокТут будет подзаголовок",
           newsDate: "06.02.2021",
         },
         {
-          newsImg: "./assets/adm-img8.png",
+          newsImg: "news2.jpg",
           newsH3: "Проведение основного государственного экзамена (ОГЭ) по предметам по выбору в 2021 г.",
           newsP: "Тут будет подзаголовок",
           newsDate: "29.01.2021",
         },
         {
-          newsImg: "./assets/adm-img8.png",
+          newsImg: "news3.jpg",
           newsH3: "Итоговое сочинение",
           newsP: "Тут будет подзаголовокТут будет подзаголовокТут будет подзаголовок",
           newsDate: "29.01.2021",
@@ -173,25 +176,19 @@ export default {
       ],
       servicesArray: [
         {
-          servicesImg: "./assets/services1.png",
+          servicesImg: "services1.png",
           servicesP: "Онлайн-сервис самопроверки",
         },
         {
-          servicesImg: "./assets/services2.png",
+          servicesImg: "services2.png",
           servicesP: "Проверка результатов ЕГЭ",
         },
         {
-          servicesImg: "./assets/services3.png",
+          servicesImg: "services3.png",
           servicesP: "Официальный информационный портал ЕГЭ",
         },
       ]
     };
-  },
-
-  methods: {
-    getImage(news) {
-      return require(news.newsImg);
-    }
   },
 
   components: {

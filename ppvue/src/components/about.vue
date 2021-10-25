@@ -2,7 +2,7 @@
         ul.about__list
             li.about__list-item(v-for='(item,index) in items')
                 a.about__a(href="#")
-                  img(:src="item.src")
+                  img(:src="require(`../assets/${item.src}`)")
                   p {{item.text}}
      
 </template>
