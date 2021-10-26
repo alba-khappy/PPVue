@@ -1,8 +1,8 @@
 <template lang="pug">
 div
   section.search
-    .container.search--container
-      .swiper-slide--style
+    .container.search--container#swiperContainer
+      .swiper-slide--style#swiper-slide--style
         h1.search--h1 &nbsp;Выбирай лучшее -
           .search--h1-highlight.search--h1-highlight-1 
             p &nbsp;поступай правильно
@@ -33,7 +33,7 @@ div
   section.admission
     .container.admission--container
       h2.h2.admission--h2 Как поступить в вуз
-        Admission(:admissions="admissions")
+      Admission(:admissions="admissions")
 
   section.news
     .container.news--container
@@ -164,6 +164,29 @@ export default {
     About,
     Admission,
   },
+
+
+    mounted() {
+        var cont = document.querySelector('#swiperContainer');
+        var swiperSlide = document.querySelector('#swiper-slide--style');
+        var contOffset = cont.offsetWidth;
+
+        var btn1 = document.querySelector('#search__swiper-button--1');
+        var btn2 = document.querySelector('#search__swiper-button--2');
+        var btn3 = document.querySelector('#search__swiper-button--3');
+
+        btn1.addEventListener('click', function () {
+            swiperSlide.style.marginLeft = 0 + 'px';
+        });
+
+        btn2.addEventListener('click', function () {
+            swiperSlide.style.marginLeft = -contOffset + 'px';
+        });
+
+        btn3.addEventListener('click', function () {
+            swiperSlide.style.marginLeft = -(contOffset * 2) + 'px';
+        });
+    }
 };
 </script>
 
@@ -246,6 +269,7 @@ export default {
   position: relative;
   min-width: 100%;
   padding: 0 150px;
+    transition: 0.3s;
 }
 
 .search--h1 {
@@ -487,17 +511,17 @@ export default {
   display: none;
 }
 
-@media (max-width: 1440px) and (min-width: 1024px) {
+@media (max-width: 1439px) and (min-width: 1024px) {
   .admission {
     background: url("../assets/arrow-top.png") 100% 20% no-repeat,
       url("../assets/arrow-bottom.png") 0 66% no-repeat;
   }
 }
 
-@media (min-width: 1441px) {
+@media (min-width: 1440px) {
   .admission {
-    background: url(../assets/arrow-top.png) center 20% no-repeat,
-      url(../assets/arrow-bottom.png) center 66% no-repeat;
+    background: url(../assets/arrow-top.png) center 22% no-repeat,
+      url(../assets/arrow-bottom.png) center  73% no-repeat;
   }
 }
 
