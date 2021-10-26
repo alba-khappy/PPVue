@@ -33,7 +33,14 @@ div
   section.admission
     .container.admission--container
       h2.h2.admission--h2 Как поступить в вуз
-      Admission(:admissions="admissions")
+      ul.admission--grid
+        li.admission--item(v-for='admission in admissions')
+          div.admission__grid-img.admission__grid-img-1.admission__grid--border
+            img(:src="require(`../assets/${admission.src}`)")
+          div.admission__p-wrapper
+            p.admission__grid-p--blue {{admission.index}}
+            p.admission__grid-p {{admission.text}}
+      p.admission--condition *При необходимости
 
   section.news
     .container.news--container
@@ -41,9 +48,9 @@ div
         h2.h2.news--h2 Новости
         a(href="#") Все новости
 
-      .swiper.swiper-3
-        #newsList.swiper-wrapper.news__list 
-          .news__list-item(v-for="(news, index) in allNews")
+      div
+        ul#newsList.news__list
+          li.news__list-item(v-for="(news, index) in allNews")
             a.news__a(href="")
               img(:src="require(`../assets/${news.newsImg}`)")
               .news__description
@@ -55,9 +62,9 @@ div
   section.services
     .container.services--container
       h2.h2.services--h2 Вам может быть интересно
-      .swiper.swiper-4
-        #servicesList.swiper-wrapper.services__list 
-          .services__list-item(v-for="(service, index) in servicesArray")
+      div
+        ul#servicesList.services__list
+          li.services__list-item(v-for="(service, index) in servicesArray")
             a.services__a(
               :style="{ backgroundImage: 'url(' + require('../assets/' + service.servicesImg) + ')' }",
               href=""
@@ -68,7 +75,6 @@ div
 
 <script>
 import About from "@/components/about.vue";
-import Admission from "@/components/admission.vue";
 
 export default {
   name: "sections",
@@ -82,22 +88,22 @@ export default {
       admissions: [
         {
           index: "1",
-          src: "adm-img1.png",
+          src: "adm-img1.svg",
           text: "Выберите специальность",
         },
         {
           index: "2",
-          src: "adm-img2.png",
+          src: "adm-img2.svg",
           text: "Выберите ВУЗ",
         },
         {
           index: "3",
-          src: "adm-img3.png",
+          src: "adm-img3.svg",
           text: "Сдайте ЕГЭ*",
         },
         {
           index: "4",
-          src: "adm-img4.png",
+          src: "adm-img4.svg",
           text: "Подайте заявление о приеме в вуз",
         },
         {
@@ -107,17 +113,17 @@ export default {
         },
         {
           index: "6",
-          src: "adm-img6.png",
+          src: "adm-img6.svg",
           text: "Подайте заявление о согласии на зачисление в вуз",
         },
         {
           index: "7",
-          src: "adm-img7.png",
+          src: "adm-img7.svg",
           text: "Принесите оригиналы документа об образовании",
         },
         {
           index: "8",
-          src: "adm-img8.png",
+          src: "adm-img8.svg",
           text: "Пройдите медицинское обследование",
         },
       ],
@@ -162,7 +168,6 @@ export default {
 
   components: {
     About,
-    Admission,
   },
 
 
@@ -196,29 +201,15 @@ export default {
 
 /*SWIPER*/
 
-.relat {
-  position: relative;
-}
-
-.swiper-container {
-  height: 150px;
-  width: 100%;
-}
-
-.swiper-slide {
-  text-align: center;
-  font-size: 38px;
-  font-weight: 700;
-  background-color: #eee;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+.swiper-slide--style {
+    display: grid;
+    grid-template-rows: 245px 155px;
+    grid-template-columns: 1fr 370px;
+    align-items: end;
+    position: relative;
+    min-width: 100%;
+    padding: 0 150px;
+    transition: 0.3s;
 }
 
 .swiper__buttons {
@@ -234,14 +225,16 @@ export default {
   height: 8px;
   background-color: #c4c4c4;
   border-radius: 20px;
+  transition: 0.3s;
 
   &:not(:last-child) {
     margin-right: 8px;
   }
 
-  &:active {
+  &:active, &:hover {
     background-color: #0d5adc;
   }
+
 }
 
 //search
@@ -254,22 +247,6 @@ export default {
   display: flex;
   overflow: hidden;
   margin: 0 auto;
-}
-
-.swiper-container {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide--style {
-  display: grid;
-  grid-template-rows: 245px 155px;
-  grid-template-columns: 1fr 370px;
-  align-items: end;
-  position: relative;
-  min-width: 100%;
-  padding: 0 150px;
-    transition: 0.3s;
 }
 
 .search--h1 {
@@ -329,11 +306,6 @@ export default {
   justify-self: end;
 }
 
-.swiper-pagination-1 {
-  width: 100%;
-  bottom: 0;
-}
-
 @media (max-width: 1300px) {
   .swiper-slide--style {
     grid-template-columns: 1fr;
@@ -356,33 +328,30 @@ export default {
   }
 }
 
-@media (max-width: 1023px) and (min-width: 769px) {
+@media (max-width: 1023px) and (min-width: 768px) {
   .search--container {
     padding: 60px 100px;
   }
 }
 
-@media (max-width: 768px) and (min-width: 376px) {
-  .search--container {
-    padding: 60px 40px 0 40px;
-  }
-
-  .swiper-slide--style {
-    grid-template-rows: 170px 370px 200px;
-  }
-
-  .search--a {
-    max-width: 240px;
-    align-self: center;
-    padding: 20px 40px;
-  }
-
-  .mySwiper1.swiper-slide-1 {
-    height: 800px;
-  }
-}
 
 @media (max-width: 767px) {
+    .swiper-slide--style {
+        padding: 0;
+    }
+
+    .swiper-slide--style {
+        grid-template-rows: 135px 200px 180px;
+    }
+
+    .swiper__buttons {
+        left: 44%;
+    }
+
+    .search--container {
+         padding: 0;
+     }
+
   .search--h1 {
     font-weight: bold;
     font-size: 24px;
@@ -392,50 +361,26 @@ export default {
 
   .search--a {
     max-width: 240px;
-    align-self: center;
+    align-self: self-start;
     padding: 20px 40px;
-  }
-
-  .search__pic {
-    width: 70%;
-  }
-}
-
-@media (max-width: 375px) {
-  .search--container {
-    padding: 0;
-  }
-
-  .swiper-slide--style {
-    grid-template-rows: 140px 200px 180px;
+    margin-top: 40px;
   }
 
   .search__pic {
     width: 75%;
   }
 
-  .search--h1-highlight {
-    height: 50px;
-  }
+    .search--h1-highlight {
+       height: 50px;
+   }
 
-  .search--h1-highlight-1 {
-    background-size: contain;
-    background-position: center;
-  }
+    .search--h1-highlight-1 {
+        background-size: contain;
+        background-position: center;
+    }
 
-  .swiper-pagination-1 {
-    width: 100%;
-  }
-}
-//about
-
-.about {
-  background-color: $lightBlue;
 }
 
-.about--container {
-  padding: 60px 165px;
-}
 
 //admission
 
@@ -460,6 +405,7 @@ export default {
   grid-template-rows: repeat(2, 235px);
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 35px;
+  margin-bottom: 30px;
 }
 
 .admission__grid--border {
@@ -495,20 +441,10 @@ export default {
   margin-right: 20px;
 }
 
-.admission--p-additional-option {
-  text-align: right;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 28px;
-  padding-top: 30px;
-}
-
-.swiper.swiper-2 {
-  display: none;
-}
-
-.swiper-pagination.swiper-pagination-2 {
-  display: none;
+.admission--condition {
+    text-align: right;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 @media (max-width: 1439px) and (min-width: 1024px) {
@@ -521,7 +457,7 @@ export default {
 @media (min-width: 1440px) {
   .admission {
     background: url(../assets/arrow-top.png) center 22% no-repeat,
-      url(../assets/arrow-bottom.png) center  73% no-repeat;
+      url(../assets/arrow-bottom.png) center 66% no-repeat;
   }
 }
 
@@ -530,58 +466,11 @@ export default {
     position: relative;
     padding: 40px 40px 30px;
   }
-
-  .admission__grid-item-1 {
-    background: url("../assets/arrow-768-1.svg") right 45% no-repeat;
-  }
-
-  .admission__grid-item-2 {
-    background: url("../assets/arrow-768-2.svg") center 67% no-repeat;
-  }
-
-  .admission__grid-item-3 {
-    background: url("../assets/arrow-768-3.svg") 11% 10% no-repeat;
-  }
-
-  .admission__grid-item-4 {
-    background: url("../assets/arrow-768-4.svg") center 39% no-repeat;
-  }
-
-  .admission__grid-item-5 {
-    background: url("../assets/arrow-768-5.svg") center no-repeat;
-  }
-
-  .admission__grid-item-6 {
-    background: url("../assets/arrow-768-6.svg") right 33% no-repeat;
-  }
-
-  .admission__grid-item-7 {
-    background: url("../assets/arrow-768-7.svg") center 19% no-repeat;
-  }
-
-  .admission__grid-item-8 {
-    background: url("../assets/arrow-768-8.svg") left 35% no-repeat;
-  }
 }
 
 @media (max-width: 1023px) {
   .admission--grid {
     display: none;
-  }
-
-  .swiper.swiper-2 {
-    display: block;
-  }
-
-  .admission--swiper-slide {
-    display: grid;
-    grid-template-rows: 235px;
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .swiper-pagination.swiper-pagination-2 {
-    display: block;
-    left: 45%;
   }
 }
 
@@ -597,16 +486,6 @@ export default {
 
   .admission__grid-img {
     margin-bottom: 20px;
-  }
-
-  .swiper-2 {
-    margin-bottom: 65px;
-  }
-
-  .admission--p-additional-option {
-    position: absolute;
-    right: 40px;
-    bottom: 45px;
   }
 }
 
@@ -632,9 +511,6 @@ export default {
     line-height: 28px;
   }
 
-  .admission--p-additional-option {
-    font-size: 16px;
-  }
 }
 //news
 
@@ -661,13 +537,13 @@ export default {
   margin-bottom: 30px;
 
   &:hover {
-    box-shadow: 0px 16px 16px #acafb1;
+    box-shadow: 0 16px 16px #acafb1;
   }
 }
 
 .news__a {
   display: inline-block;
-  box-shadow: 0px 16px 16px #dde6eb;
+  box-shadow: 0 16px 16px #dde6eb;
 }
 
 .news__description--h3 {
@@ -709,20 +585,6 @@ export default {
   padding: 15px 24px 25px;
 }
 
-.swiper-pagination-3,
-.swiper-button-next-3,
-.swiper-button-prev-3 {
-  display: none;
-}
-
-.swiper-button--wrapper-3 {
-  position: relative;
-}
-
-.swiper-slide {
-  width: auto;
-}
-
 @media (max-width: 1024px) {
   .news--container {
     padding: 60px 40px 90px;
@@ -731,7 +593,7 @@ export default {
   .news__a,
   .news__a img,
   .news__description {
-    width: 210px;
+    width: 100%;
   }
 
   .news__a {
@@ -739,55 +601,56 @@ export default {
     margin: 0 auto;
   }
 
-  .swiper-3 {
-    width: 100%;
-  }
+    @media (max-width: 767px) {
 
-  .swiper-pagination-3,
-  .swiper-button-next-3,
-  .swiper-button-prev-3 {
-    display: block;
-    position: absolute;
-  }
+        .news--container {
+            padding: 60px 15px 60px;
+        }
 
-  .swiper-pagination-3 {
-    width: 90%;
-  }
+        .news__description {
+            height: 235px;
+        }
 
-  .swiper-button-next.swiper-button-next-3,
-  .swiper-button-prev.swiper-button-prev-3 {
-    top: 150px;
-  }
-}
+        .news__heading {
+            justify-content: space-between;
+            margin-bottom: 32px;
+        }
 
-@media (max-width: 768px) {
-  .swiper-3 {
-    width: 90%;
-  }
-}
+        .news__description {
+            height: 210px;
+        }
 
-@media (max-width: 375px) {
-  .news--container {
-    padding: 60px 15px 60px;
-  }
+        .news__a {
+            display: block;
+            margin: 0 auto 30px;
+        }
 
-  .news__description {
-    height: 235px;
-  }
+        .news--h2 {
+            font-size: 24px;
+            line-height: 28px;
+        }
 
-  .news__heading {
-    justify-content: space-between;
-  }
+        .news__list-item {
+            position: relative;
+            padding-right: 35px;
 
-  .news__a {
-    display: block;
-    margin: 0 auto 30px;
-  }
+            &:after {
+                content: '';
+                background-image: url("../assets/arrowNext.svg");
+                position: absolute;
+                height: 30px;
+                width: 20px;
+                background-repeat: no-repeat;
+                right: 0;
+                top: 35%;
+            }
 
-  .news--h2 {
-    font-size: 24px;
-    line-height: 28px;
-  }
+            &:not(:first-child) {
+                display: none;
+            }
+        }
+    }
+
 }
 //services
 
@@ -819,24 +682,6 @@ export default {
   flex-wrap: wrap;
 }
 
-.services__a-1 {
-  background-image: url("../assets/services1.png");
-}
-
-.services__a-2 {
-  background-image: url("../assets/services2.png");
-}
-
-.services__a-3 {
-  background-image: url("../assets/services3.png");
-}
-
-.swiper-button-next-4,
-.swiper-button-prev-4,
-.swiper-pagination-4 {
-  display: none;
-}
-
 @media (max-width: 1399px) and (min-width: 769px) {
   .services__list {
     justify-content: center;
@@ -858,16 +703,6 @@ export default {
     width: 310px;
   }
 
-  .swiper-button-next-4,
-  .swiper-button-prev-4,
-  .swiper-pagination-4 {
-    display: block;
-  }
-
-  .swiper-button-next-4,
-  .swiper-button-prev-4 {
-    top: 43%;
-  }
 }
 
 @media (max-width: 1024px) {
@@ -875,42 +710,10 @@ export default {
     padding: 60px 40px;
   }
 
-  .swiper-pagination-4 {
-    left: 45%;
-  }
-
   .services__a {
     width: 280px;
     margin: 0 auto 20px;
     background-size: 90%;
-  }
-}
-
-@media (max-width: 768px) {
-  .swiper-button-next-4,
-  .swiper-button-prev-4 {
-    top: 40%;
-  }
-
-  .swiper-button-prev-4 {
-    left: 0;
-  }
-
-  .swiper-button-next,
-  .swiper-rtl .swiper-button-prev {
-    right: 0;
-  }
-
-  .swiper-button-next-4,
-  .swiper-button-prev-4,
-  .swiper-pagination-4 {
-    display: block;
-  }
-}
-
-@media (max-width: 768px) and (min-width: 376px) {
-  .mySwiper1.swiper-slide-1 {
-    height: 800px;
   }
 }
 

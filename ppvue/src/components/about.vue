@@ -3,7 +3,7 @@
             li.about__list-item(v-for='(item,index) in items')
                 a.about__a(href="#")
                   img(:src="require(`../assets/${item.src}`)")
-                  p {{item.text}}
+                  p.about__p {{item.text}}
      
 </template>
 
@@ -29,14 +29,16 @@ export default {
 <style lang="scss">
 @import "../assets/scss/general.scss";
 
-.about__list {
-  display: flex;
+.about {
+    background-color: $lightBlue;
 }
 
-.about__p {
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 23px;
+.about--container {
+    padding: 60px 165px;
+}
+
+.about__list {
+  display: flex;
 }
 
 .about__list-item {
@@ -51,22 +53,26 @@ export default {
     display: grid;
     grid-template-columns: 60px 270px;
     align-items: center;
-    box-shadow: 0px 16px 16px #dde6eb;
-    padding: 20px 0px 20px 20px;
+    box-shadow: 0 16px 16px #dde6eb;
+    padding: 20px 0 20px 20px;
     color: #0d5adc;
     background-color: #ffffff;
+    transition: 0.3s;
 
     &:hover {
       background-color: #0d5adc;
       color: #ffffff;
-      box-shadow: 0px 16px 16px #acafb1;
+      box-shadow: 0 16px 16px #acafb1;
 
       img>svg>path{
         fill: #ffffff !important;
       }
-
     }
+}
 
+.about__p {
+    font-weight: bold;
+    font-size: 20px;
 }
 
 @media (max-width: 1339px) {
@@ -79,27 +85,17 @@ export default {
   }
 }
 
-@media (max-width: 768px) {
-  .about__list-item:not(:last-child) {
-    margin-bottom: 30px;
-  }
+
+@media (max-width: 767px) {
+    .about--container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .about__a {
+        grid-template-columns: 55px 260px;
+    }
 }
 
-@media (max-width: 768px) and (min-width: 376px) {
-  .about--container {
-    padding: 60px 40px 60px;
-  }
-
-  .about__a {
-    grid-template-columns: 74px 280px;
-    padding: 20px 0px 20px 70px;
-  }
-}
-
-@media (max-width: 375px) {
-  .about--container {
-    padding: 60px 10px;
-  }
-}
 
 </style>
