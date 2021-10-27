@@ -55,7 +55,7 @@ header.header
     color: $blackColorText;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 767px) {
 
     .header--container {
         padding: 25px 15px;
@@ -67,7 +67,7 @@ header.header
     }
 
     .logo-wrapper {
-        grid-template-columns: 45px 200px;
+        grid-template-columns: 45px 160px;
     }
 
     .logo-wrapper > svg {
@@ -75,8 +75,7 @@ header.header
     }
 
     .header--entrance-a > svg {
-        width: 24px;
-        height: 24px;
+        transform: scale(0.7);
     }
 
 }

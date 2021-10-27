@@ -62,19 +62,7 @@ footer.footer
     color: $whiteColor;
 }
 
-@media (max-width: 768px) and (min-width: 376px) {
-
-    .footer--container {
-        padding: 40px;
-    }
-
-    .footer__quote {
-        grid-row: 3/4;
-    }
-}
-
-
-@media (max-width: 375px) {
+@media (max-width: 767px) {
 
     .footer--container {
         grid-template-rows: 1fr 1fr 1fr;
@@ -85,5 +73,14 @@ footer.footer
     .footer__quote {
         grid-row: 3/4;
     }
+
+    .footer--logo-wrapper {
+        margin-bottom: 15px;
+    }
+
+    .footer__error {
+        margin-bottom: 23px;
+    }
 }
+
 </style>
