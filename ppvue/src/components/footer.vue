@@ -62,12 +62,12 @@ footer.footer
     color: $whiteColor;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1080px) {
 
     .footer--container {
         grid-template-rows: 1fr 1fr 1fr;
         grid-template-columns: 1fr;
-        padding: 30px 15px;
+        padding: 30px 40px;
     }
 
     .footer__quote {
@@ -80,6 +80,12 @@ footer.footer
 
     .footer__error {
         margin-bottom: 23px;
+    }
+}
+
+@media (max-width: 767px) {
+    .footer--container {
+        padding: 30px 15px;
     }
 }
 
