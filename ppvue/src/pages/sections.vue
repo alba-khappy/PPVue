@@ -7,20 +7,20 @@
                         .search--h1-highlight.search--h1-highlight-1
                             p &nbsp;поступай правильно
                     a.search--a(href="#") Начать поиск
-                    img.search__pic(src="../assets/search-img1.png", alt="illustration")
+                    img.search__pic(src="../assets/search-img1.svg", alt="illustration")
                 .swiper-slide--style
                     h1.search--h1
                         .search--h1-highlight.search--h1-highlight-2 &nbsp;Твой билет
                         div в будущее
                     a.search--a(href="#") Начать поиск
-                    img.search__pic(src="../assets/search-img2.png", alt="illustration")
+                    img.search__pic(src="../assets/search-img2.svg", alt="illustration")
                 .swiper-slide--style
                     h1.search--h1
                         span Открывай
                         span.search--h1-highlight.search--h1-highlight-3 новые
                         span.search--h1-highlight.search--h1-highlight-4 &nbsp;возможности
                     a.search--a(href="#") Начать поиск
-                    img.search__pic(src="../assets/search-img3.png", alt="illustration")
+                    img.search__pic(src="../assets/search-img3.svg", alt="illustration")
             .swiper__buttons.search--swiper-buttons
                 #search__swiper-button--1.swiper-button
                 #search__swiper-button--2.swiper-button
@@ -28,7 +28,19 @@
 
         section.about
             .container.about--container
-                About(:items="items")
+                ul.about__list
+                    li.about__list-item
+                        a.about__a(href="#")
+                            include ../assets/about1.svg
+                            p.about__p Государственные вузы
+                    li.about__list-item
+                        a.about__a(href="#")
+                            include ../assets/about2.svg
+                            p.about__p Направления подготовки
+                    li.about__list-item
+                        a.about__a(href="#")
+                            include ../assets/about3.svg
+                            p.about__p Правила поступления
 
         section.admission
             .container.admission--container
@@ -89,22 +101,16 @@
 
 
 <script>
-    import About from "@/components/about.vue";
 
     export default {
         name: "sections",
         data() {
             return {
-                items: [
-                    {text: "Государственные вузы", src: "about1.svg"},
-                    {text: "Направления подготовки", src: "about2.svg"},
-                    {text: "Правила поступления", src: "about3.svg"},
-                ],
                 admissions: [
                     {
                         index: "1",
                         src: "adm-img1.svg",
-                        text: '<span class=""> Выберите специальность</span>',
+                        text: "Выберите специальность",
                     },
                     {
                         index: "2",
@@ -179,10 +185,6 @@
                     },
                 ],
             };
-        },
-
-        components: {
-            About,
         },
 
 
@@ -414,6 +416,97 @@
 
     }
 
+    //about
+
+    .about {
+        background-color: $lightBlue;
+    }
+
+    .about--container {
+        display: flex;
+        justify-content: center;
+        padding: 60px 0px;
+    }
+
+    .about__list {
+        display: flex;
+    }
+
+    .about__list-item {
+        list-style-type: none;
+
+        &:not(:last-child) {
+            margin-right: 30px;
+        }
+    }
+
+    .about__a {
+        display: grid;
+        grid-template-columns: 60px 270px;
+        align-items: center;
+        box-shadow: 0 16px 16px #dde6eb;
+        padding: 20px 0 20px 20px;
+        color: #0d5adc;
+        background-color: #ffffff;
+        transition: 0.3s;
+
+        &:hover {
+            background-color: #0d5adc;
+            color: #ffffff;
+            box-shadow: 0 16px 16px #acafb1;
+
+            svg path{
+                fill: #ffffff;
+            }
+        }
+    }
+
+    .about__p {
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    @media (max-width: 1300px) {
+
+        .about__list {
+            flex-direction: column;
+        }
+
+        .about__a {
+            padding: 20px 60px 20px 80px;
+        }
+
+        .about__list-item:not(:last-child) {
+            margin-right: 0;
+            margin-bottom: 30px;
+        }
+
+    }
+
+    @media (max-width: 767px) {
+        .about--container {
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+
+        .about__a {
+            grid-template-columns: 55px 260px;
+            padding: 20px 0 20px 20px;
+        }
+    }
+
+    @media (max-width: 374px) {
+
+        .about__a {
+            grid-template-columns: 45px 220px;
+
+        }
+        .about__p {
+            font-weight: normal;
+            font-size: 16px;
+        }
+    }
+
 
     //admission
 
@@ -450,6 +543,7 @@
 
     .admission__grid-p {
         max-width: 200px;
+        color: #3b4157;
     }
 
     .admission__p-wrapper {
@@ -466,10 +560,15 @@
         margin-right: 20px;
     }
 
+    .admission__grid-p--first-word {
+        color: $blueColorText;
+    }
+
     .admission--condition {
         text-align: right;
         font-size: 20px;
         font-weight: 600;
+        color: #5E647B;
     }
 
     .admission--swiper-buttons {
@@ -478,22 +577,22 @@
 
     @media (max-width: 1440px) and (min-width: 1024px) {
         .admission {
-            background: url("../assets/arrow-top.png") 100% 20% no-repeat,
-            url("../assets/arrow-bottom.png") 0 66% no-repeat;
+            background: url("../assets/arrow-top.svg") 100% 20% no-repeat,
+            url("../assets/arrow-bottom.svg") 0 66% no-repeat;
         }
     }
 
     @media (min-width: 1441px) {
         .admission {
-            background: url(../assets/arrow-top.png) center 22% no-repeat,
-            url(../assets/arrow-bottom.png) center 66% no-repeat;
+            background: url(../assets/arrow-top.svg) center 22% no-repeat,
+            url(../assets/arrow-bottom.svg) center 66% no-repeat;
         }
     }
 
     @media (max-width: 1024px) {
 
         .admission {
-            background: url(../assets/arrow-768.png) 20% 35% no-repeat;
+            background: url(../assets/arrow-768-1.svg) 20% 27% no-repeat;
             background-size: contain;
         }
 
@@ -523,7 +622,7 @@
 
     @media (max-width: 767px) {
         .admission {
-            background: url(../assets/arrow-375.png) 20% 35% no-repeat;
+            background: url(../assets/arrow-375.svg) 20% 35% no-repeat;
             background-size: contain;
         }
 
@@ -599,6 +698,10 @@
         display: inline-block;
         box-shadow: 0 16px 16px #dde6eb;
         transition: 0.3s;
+
+        img {
+            display: block;
+        }
 
         &:hover {
             box-shadow: 0 16px 16px #acafb1;
@@ -696,9 +799,7 @@
             width: 95%;
             margin-bottom: 30px;
         }
-
     }
-
 
     @media (max-width: 1300px) and (max-width: 768px) {
 
@@ -758,7 +859,6 @@
         .news--swiper-buttons {
             bottom: -10px;
         }
-
     }
 
     @media (max-width: 374px) {
@@ -781,6 +881,10 @@
 
     .services--h2 {
         margin-bottom: 40px;
+    }
+
+    .services__p {
+        color: #3B4157;
     }
 
     .services__a {
@@ -829,6 +933,10 @@
 
         .services__list-item:nth-child(3) {
             display: none;
+        }
+
+        .services__button-next {
+            top: 37%;
         }
     }
 
@@ -882,10 +990,6 @@
 
         .services__list-item:not(:last-child) {
             padding-right: 60px;
-        }
-
-        .footer--logo-wrapper {
-            grid-template-columns: 45px 250px;
         }
 
         .services--h2 {

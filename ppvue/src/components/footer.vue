@@ -87,6 +87,10 @@ footer.footer
     .footer--container {
         padding: 30px 15px;
     }
+
+    .footer--logo-wrapper {
+        grid-template-columns: 45px 250px;
+    }
 }
 
 </style>
