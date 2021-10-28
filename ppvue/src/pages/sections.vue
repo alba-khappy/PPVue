@@ -63,7 +63,7 @@
             .container.news--container
                 .news__heading
                     h2.h2.news--h2 Новости
-                    a(href="#") Все новости
+                    a(href="/allNews") Все новости
 
                 div.news__list-wrapper
                     ul#newsList.news__list
@@ -89,7 +89,7 @@
                         li.services__list-item(v-for="(service, index) in servicesArray")
                             a.services__a(
                                 :style="{ backgroundImage: 'url(' + require('../assets/' + service.servicesImg) + ')' }",
-                                href=""
+                                href="https://myskills.ru/"
                             )
                             p.services__p {{ service.servicesP }}
                         a(href="#").button-next.services__button-next
