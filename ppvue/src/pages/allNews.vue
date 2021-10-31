@@ -3,8 +3,9 @@
         h1.all-news-content__h1 Новости
         ul.all-news__list
             li.all-news__list-item(v-for="(news, index) in allNews")
-                a(href="/news")
-                    div.all-news__img
+                a(href='/news')
+                    div.all-news__img(
+                        :style="{ backgroundImage: 'url(' + require('../assets/' + news.newsImg) + ')' }")
                     div.all-news-content--style.all-news__description-p
                         p {{ news.newsP }}
                     div.all-news-content--style.all-news-content--date {{ news.newsDate }}
@@ -13,7 +14,7 @@
 
 <script>
     export default {
-        name: "sections",
+        name: "allNews",
         data() {
             return {
                 allNews: [
@@ -62,13 +63,8 @@
         padding: 55px 165px;
     }
 
-    /*.all-news__img {*/
-    /*    max-width: 260px;*/
-    /*    margin-bottom: 10px;*/
-    /*}*/
-
     .all-news__img {
-        background-image: url(/img/news1.b68d0b4b.jpg);
+        /*background-image: url('/img/news1.b68d0b4b.jpg');*/
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -96,7 +92,6 @@
     }
 
     .all-news__list {
-        //@include displayFlexSpaceBetween;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
     }
@@ -126,6 +121,13 @@
 
         .all-news__list {
             grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 767px) {
+
+        .all-news-content--container {
+            padding: 30px 15px;
         }
     }
 

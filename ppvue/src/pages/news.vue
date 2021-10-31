@@ -75,6 +75,22 @@
         .news-content--container {
             padding: 30px 40px;
         }
+
+        .news-content--breadcrumbs {
+            flex-direction: column;
+        }
+
+        .news-content--breadcrumb {
+            margin-bottom: 10px;
+        }
+    }
+
+    @media (max-width: 767px) {
+
+        .news-content--container {
+            padding: 30px 15px;
+        }
+
     }
 
 </style>
