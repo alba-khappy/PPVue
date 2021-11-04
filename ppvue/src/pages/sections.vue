@@ -6,7 +6,7 @@
                     h1.search--h1 &nbsp;Выбирай лучшее -
                         .search--h1-highlight.search--h1-highlight-1
                             p &nbsp;поступай правильно
-                    a.search--a(href="#") Начать поиск
+                    a.search--a(href="/search") Начать поиск
                     img.search__pic(src="../assets/search-img1.svg", alt="illustration")
                 .swiper-slide--style
                     h1.search--h1
@@ -599,15 +599,30 @@
         .admission--grid {
             overflow: hidden;
             grid-template-rows: 235px;
-            grid-template-columns: repeat(8, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             margin-bottom: 10px;
+        }
+
+        .admission--item:nth-child(4), .admission--item:nth-child(5) ,.admission--item:nth-child(6), .admission--item:nth-child(7),.admission--item:nth-child(8){
+            display: none;
+        }
+    }
+
+    @media (max-width: 1080px) {
+        .admission--container {
+            padding: 60px 40px 35px;
         }
     }
 
     @media (max-width: 1300px) and (max-width: 768px) {
 
         .admission--grid {
+            grid-template-columns: repeat(2, 1fr);
             margin-bottom: 40px;
+        }
+
+        .admission--item:nth-child(3) {
+            display: none;
         }
 
         .admission--h2 {
