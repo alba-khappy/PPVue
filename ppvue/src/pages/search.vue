@@ -40,6 +40,7 @@
         grid-template-columns: 1fr auto auto;
         padding: 25px 30px;
         border: none;
+        box-shadow: 0 16px 16px #DDE6EB;
     }
 
     .search--h1 {
@@ -53,6 +54,7 @@
         border: 1px solid #A6A5A9;
         margin-bottom: 40px;
         padding: 5px 20px;
+        background: $whiteColor url("../assets/loupe.svg") no-repeat 98% center;
 
         &:focus {
             border: 1px solid $blueColorText;
@@ -76,10 +78,7 @@
     .search--compare-button-close {
         width: 20px;
         height: 20px;
-        background-color: $whiteColor;
-        background-image: url("../assets/button-close.svg");
-        background-repeat: no-repeat;
-        background-position: center;
+        background: $whiteColor url("../assets/button-close.svg") no-repeat center;
         border: none;
     }
 

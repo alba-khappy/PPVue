@@ -51,7 +51,8 @@
                             img(:src="require(`../assets/${admission.src}`)")
                         div.admission__p-wrapper
                             p.admission__grid-p--blue {{admission.index}}
-                            p.admission__grid-p {{admission.text}}
+                            p.admission__grid-p
+                                span(v-html="admission.text")
                 p.admission--condition *При необходимости
                 .swiper__buttons.admission--swiper-buttons
                     .swiper-button
@@ -64,7 +65,6 @@
                 .news__heading
                     h2.h2.news--h2 Новости
                     a(href="/allNews") Все новости
-
                 div.news__list-wrapper
                     ul#newsList.news__list
                         li.news__list-item(v-for="(news, index) in allNews")
@@ -110,42 +110,42 @@
                     {
                         index: "1",
                         src: "adm-img1.svg",
-                        text: "Выберите специальность",
+                        text: "<div class='p--first-word'>Выберите</div> специальность",
                     },
                     {
                         index: "2",
                         src: "adm-img2.svg",
-                        text: "Выберите ВУЗ",
+                        text: "<div class='p--first-word'>Выберите</div> ВУЗ",
                     },
                     {
                         index: "3",
                         src: "adm-img3.svg",
-                        text: "Сдайте ЕГЭ*",
+                        text: "<div class='p--first-word'>Сдайте</div> ЕГЭ*",
                     },
                     {
                         index: "4",
                         src: "adm-img4.svg",
-                        text: "Подайте заявление о приеме в вуз",
+                        text: "<div class='p--first-word'>Подайте</div> заявление о приеме в вуз",
                     },
                     {
                         index: "5",
                         src: "adm-img5.png",
-                        text: "Сдайте вступительные испытания",
+                        text: "<div class='p--first-word'>Сдайте</div> вступительные испытания",
                     },
                     {
                         index: "6",
                         src: "adm-img6.svg",
-                        text: "Подайте заявление о согласии на зачисление в вуз",
+                        text: "<div class='p--first-word'>Подайте</div> заявление о согласии на зачисление в вуз",
                     },
                     {
                         index: "7",
                         src: "adm-img7.svg",
-                        text: "Принесите оригиналы документа об образовании",
+                        text: "<div class='p--first-word'>Принесите</div> оригиналы документа об образовании",
                     },
                     {
                         index: "8",
                         src: "adm-img8.svg",
-                        text: "Пройдите медицинское обследование",
+                        text: "<div class='p--first-word'>Пройдите</div> медицинское обследование",
                     },
                 ],
                 allNews: [
@@ -425,7 +425,7 @@
     .about--container {
         display: flex;
         justify-content: center;
-        padding: 60px 0px;
+        padding: 60px 0;
     }
 
     .about__list {
@@ -560,7 +560,7 @@
         margin-right: 20px;
     }
 
-    .admission__grid-p--first-word {
+    .p--first-word {
         color: $blueColorText;
     }
 
@@ -785,13 +785,11 @@
         }
 
         .button-next {
-            background-image: url("../assets/arrowNext.svg");
+            background: transparent url("../assets/arrowNext.svg") no-repeat;
             position: absolute;
             height: 35px;
             width: 22px;
             border: none;
-            background-color: transparent;
-            background-repeat: no-repeat;
             right: 0;
         }
 
