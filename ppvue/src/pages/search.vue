@@ -8,13 +8,30 @@
                 button.search--compare-button Сравнить
                 button.search--compare-button-close
 
-        section.container.search--section-universities
-            ul.search--universities-list gg
+        section.container.search--section-university
+            ul.university-list
+                universityItem
+                universityItem
+                universityItem
             div.search--options ff
 </template>
 
-<script></script>
+<script>
+    import universityItem from '@/components/universityItem.vue';
 
+
+    export default {
+        data() {
+            return {
+            };
+        },
+        methods: {
+        },
+        components: {
+            universityItem
+        },
+    };
+</script>
 
 <style lang="scss">
     @import "../assets/scss/general.scss";
@@ -23,7 +40,7 @@
         color: $blackColorText;
     }
 
-    .search--section-compare, .search--section-universities {
+    .search--section-compare, .search--section-university {
         padding: 55px 165px;
     }
 
@@ -82,8 +99,12 @@
         border: none;
     }
 
-    .search--section-universities {
+    .search--section-university {
         display: flex;
+    }
+
+    .university-list {
+        margin-right: 100px;
     }
 
 </style>
