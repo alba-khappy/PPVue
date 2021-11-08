@@ -17,7 +17,7 @@
         grid-template-rows: repeat(2,1fr);
         border-bottom: 1px solid $grayColor2;
         column-gap: 30px;
-        padding-bottom: 40px;
+        padding: 40px 0;
     }
 
     .university-logo {

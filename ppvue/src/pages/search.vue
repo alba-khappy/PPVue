@@ -13,22 +13,31 @@
                 universityItem
                 universityItem
                 universityItem
-            div.search--options ff
+            div.search--options
+                dropdown(:dropdown-list="regions", :dropdown-title="regionTitle")
+                h3.options-h3 Тип учебного заведения
+                dropdown(:dropdown-list="[5,7,2]")
+
+
 </template>
 
 <script>
     import universityItem from '@/components/universityItem.vue';
+    import dropdown from '@/components/dropdown.vue';
 
 
     export default {
         data() {
             return {
+                regionTitle: 'Выбрать субъект РФ',
+                regions: ['Адыгея', 'Москва', 'Краснодар']
             };
         },
         methods: {
         },
         components: {
-            universityItem
+            universityItem,
+            dropdown
         },
     };
 </script>
@@ -105,6 +114,11 @@
 
     .university-list {
         margin-right: 100px;
+    }
+
+    .options-h3 {
+        font-size: 14px;
+        font-weight: 400;
     }
 
 </style>
