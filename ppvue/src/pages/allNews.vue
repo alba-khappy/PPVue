@@ -64,7 +64,6 @@
     }
 
     .all-news__img {
-        /*background-image: url('/img/news1.b68d0b4b.jpg');*/
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;

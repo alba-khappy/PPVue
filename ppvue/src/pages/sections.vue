@@ -251,7 +251,6 @@
         &:active, &:hover {
             background-color: #0d5adc;
         }
-
     }
 
     //search
@@ -315,6 +314,11 @@
         text-transform: uppercase;
         margin-left: 15px;
         white-space: nowrap;
+        transition: 0.3s;
+
+        &:hover {
+            background-color: #2f76ef;
+        }
     }
 
     .search__pic {
@@ -506,7 +510,6 @@
             font-size: 16px;
         }
     }
-
 
     //admission
 
@@ -804,7 +807,6 @@
         .news__list-wrapper {
             position: relative;
         }
-
     }
 
     @media (max-width: 1400px) and (min-width: 769px) {
