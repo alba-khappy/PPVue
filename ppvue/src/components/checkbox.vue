@@ -1,15 +1,16 @@
 <template lang="pug">
     .checkbox.checkbox-with-label
-        input#checkbox.visually-hidden(type="checkbox", name="checkbox")
-        label(for="checkbox", v-for="checkbox in checkboxTitle") {{checkbox}}
+        input#checkbox.visually-hidden(type="checkbox", name="checkbox", v-model="checked")
+        label(for="checkbox", v-for="checkbox in checkboxLabel") {{checkbox}}
 </template>
 
 <script>
 export default {
   name: "checkbox",
-  props: ["checkboxTitle"],
+  props: ["checkboxLabel"],
   data() {
     return {
+        checked: [],
     };
   },
 };
@@ -33,7 +34,6 @@ export default {
   position: absolute;
   width: 100%;
   height: 18px;
-  
 }
 
 .checkbox-with-label label::before {

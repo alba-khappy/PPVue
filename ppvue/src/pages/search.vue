@@ -16,19 +16,19 @@ main
     .search--options
       dropdown(:dropdown-list="regions", :dropdown-title="regionTitle")
       h3.options-h3 Тип учебного заведения
-      checkbox(:checkboxTitle="types") {{type}}
+      checkbox(:checkbox-lable="type", v-for="type in types")
       h3.options-h3 Форма обучения
-      checkbox(:checkboxTitle="forms") {{form}}
+      checkbox(:checkbox-title="forms")
       dropdown(:dropdown-list="directionGroups",:dropdown-title="directionGroupsTitle")
       dropdown(:dropdown-list="selectItem", :dropdown-title="selectItemTitle")
       h3.options-h3 Баллы ЕГЭ
       
       h3.options-h3 Стоимость обучения
-      checkbox(:checkboxTitle="costs") {{cost}}
+      checkbox(:checkbox-title="costs")
       h3.options-h3 Уровень образования
-      checkbox(:checkboxTitle="levels") {{level}}
+      checkbox(:checkbox-title="levels")
       h3.options-h3 Дополнительно
-      checkbox(:checkboxTitle="variants") {{variant}}
+      checkbox(:checkbox-title="variants")
       
 </template>
 
@@ -95,6 +95,10 @@ main {
 
 .search--h1 {
   margin-bottom: 40px;
+}
+
+.search--options {
+    max-width: 255px;
 }
 
 .search--main-input {
