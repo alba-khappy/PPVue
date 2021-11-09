@@ -5,7 +5,6 @@
         p.university-location Ростовская область
         button.university-btn-like.university-btn
         button.university-btn-add.university-btn
-
 </template>
 
 <style lang="scss">
