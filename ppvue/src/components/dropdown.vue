@@ -1,13 +1,13 @@
 <template lang="pug">
 .options-dropdown(@click="show = !show") {{ dropdownTitle }}
   ul.options-dropdown__list(v-show="show")
-    li.options-dropdown__item(v-for="dropdown in dropdownList") {{ dropdown }}
+    li.options-dropdown__item(v-for="dropdown in dropdownList") {{dropdown}}
 </template>
 
 <script>
 export default {
   name: "dropdown",
-  props: ["dropdownList", "dropdownTitle", "directionGroups"],
+  props: ["dropdownList", "dropdownTitle"],
   data() {
     return {
       show: false,
@@ -28,7 +28,10 @@ export default {
   font-size: 14px;
 
   &:after {
-    content: "▼";
+    content: "";
+    background: url('../assets/polygon.svg') center no-repeat;
+    width: 10px;
+    height: 10px;
     position: absolute;
     right: 13px;
     top: 7px;

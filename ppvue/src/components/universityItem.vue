@@ -12,7 +12,7 @@
 
     .university-item {
         display: grid;
-        grid-template-columns: 100px 1fr auto;
+        grid-template-columns: 65px 1fr auto;
         grid-template-rows: repeat(2,1fr);
         border-bottom: 1px solid $grayColor2;
         column-gap: 30px;
@@ -26,11 +26,13 @@
     .university-name {
         font-size: 18px;
         font-weight: 600;
+        align-self: end;
     }
 
     .university-location {
         font-size: 14px;
         grid-area: 2/2/3/3;
+        align-self: end;
     }
 
     .university-btn {

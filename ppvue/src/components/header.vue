@@ -24,14 +24,13 @@ header.header
 
 .logo-wrapper {
     display: grid;
-    grid-template-columns: 55px 245px;
+    grid-template-columns: 60px 290px;
 }
 
 .logo-p {
     align-self: center;
     font-size: 18px;
     font-weight: 900;
-    letter-spacing: 0.05em;
     line-height: 21px;
 }
 
@@ -67,7 +66,7 @@ header.header
     }
 
     .logo-wrapper {
-        grid-template-columns: 45px 160px;
+        grid-template-columns: 45px 190px;
     }
 
     .logo-wrapper > svg {
