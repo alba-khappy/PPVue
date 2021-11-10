@@ -23,13 +23,18 @@ export default {
 <style lang="scss">
 @import "../assets/scss/general.scss";
 
+.checkbox {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
 .checkbox label {
   position: relative;
   font-size: 16px;
   line-height: 18px;
   color: #a4a9b9;
   background-color: #e4e4e4;
-  padding: 0 10px;
+  padding: 0 7px;
   margin-right: 10px;
 
     &::before {

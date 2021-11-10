@@ -12,14 +12,14 @@
                     h1.search--h1
                         .search--h1-highlight.search--h1-highlight-2 &nbsp;Твой билет
                         div в будущее
-                    a.search--a(href="#") Начать поиск
+                    a.search--a(href="/search") Начать поиск
                     img.search__pic(src="../assets/search-img2.svg", alt="illustration")
                 .swiper-slide--style
                     h1.search--h1
                         span Открывай
                         span.search--h1-highlight.search--h1-highlight-3 новые
                         span.search--h1-highlight.search--h1-highlight-4 &nbsp;возможности
-                    a.search--a(href="#") Начать поиск
+                    a.search--a(href="/search") Начать поиск
                     img.search__pic(src="../assets/search-img3.svg", alt="illustration")
             .swiper__buttons.search--swiper-buttons
                 #search__swiper-button--1.swiper-button

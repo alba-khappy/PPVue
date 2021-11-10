@@ -1,11 +1,38 @@
 <template lang="pug">
     li.university-item
-        img(src="../assets/university1.png").university-logo
-        h2.university-name Донской государственный технический университет
-        p.university-location Ростовская область
+        //img(:src="require(`../assets/${logo}`)").university-logo
+        h2.university-name {{university.name}}
+        p.university-location {{university.location}}
         button.university-btn-like.university-btn
         button.university-btn-add.university-btn
 </template>
+
+<script>
+    export default {
+        name: "university",
+        data() {
+            return {
+                universities: [
+                    {
+                        logo: "university1.png",
+                        name: "Донской государственный технический университет",
+                        location: "Ростовская область",
+                    },
+                    {
+                        logo: "university2.png",
+                        name: "Крымский федеральный университет имени В.И. Вернадского",
+                        location: "Республика Крым",
+                    },
+                    {
+                        logo: "university1.png",
+                        name: "Федеральное государственное бюджетное образовательное учреждение высшего образования «Донской государственный технический университет»",
+                        location: "Ростовская область",
+                    },
+                ],
+            };
+        },
+    };
+</script>
 
 <style lang="scss">
     @import "../assets/scss/general.scss";

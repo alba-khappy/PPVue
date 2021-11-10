@@ -10,11 +10,9 @@ main
 
   section.container.search--section-university
     ul.university-list
-      universityItem
-      universityItem
-      universityItem
+      universityItem(v-for="(university, index) in universities") {{university}}
     .search--options
-      dropdown(:dropdown-list="regions", :dropdown-title="regionTitle").options-region
+      dropdown(:dropdown-list="regions", :dropdown-title="regionTitle")
       h3.options-h3 Тип учебного заведения
       checkbox(:checkbox-label="type", v-for="(type, index) in types")
       h3.options-h3 Форма обучения
@@ -113,7 +111,7 @@ main {
 }
 
 .search--options {
-  max-width: 255px;
+  max-width: 290px;
   font-size: 14px;
   padding-top: 60px;
 }
@@ -128,8 +126,7 @@ main {
   background: $whiteColor url("../assets/loupe.svg") no-repeat 98% center;
 
   &:focus {
-    border: 1px solid $blueColorText;
-    outline: none;
+    @include inputFocus;
   }
 }
 
@@ -162,15 +159,12 @@ main {
 .options-h3 {
   font-size: 14px;
   font-weight: 400;
-  margin-bottom: 20px;
-}
-
-.options-region {
-    margin-bottom: 30px;
+  margin: 40px 0 20px;
 }
 
 .options--input-wrapper {
   display: flex;
+    align-items: center;
 }
 
 .options__input-cost {
@@ -178,5 +172,11 @@ main {
   height: 30px;
   border: 1px solid #a6a5a9;
   margin: 0 10px;
+  padding: 5px 10px;
+
+    &:focus {
+        @include inputFocus;
+    }
 }
+
 </style>

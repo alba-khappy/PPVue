@@ -35,6 +35,11 @@ $lightBlue: #f4f9fc;
     justify-content: space-between;
 }
 
+@mixin inputFocus {
+        border: 1px solid $blueColorText;
+        outline: none;
+}
+
 a {
     text-decoration: none;
 }
