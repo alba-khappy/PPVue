@@ -73,8 +73,7 @@
     }
 
     .all-news-content__h1 {
-        font-size: 34px;
-        font-weight: normal;
+        @include h1Style;
         margin-bottom: 20px;
     }
 

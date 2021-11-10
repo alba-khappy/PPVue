@@ -28,6 +28,7 @@ $blackColorText: #3b4157;
 $whiteColor: #ffffff;
 $grayColor1: #9eaec6;
 $grayColor2: #cdcfd2;
+$grayColor3: #A6A5A9;
 $lightBlue: #f4f9fc;
 
 @mixin displayFlexSpaceBetween {
@@ -40,12 +41,21 @@ $lightBlue: #f4f9fc;
         outline: none;
 }
 
+@mixin h1Style {
+    font-size: 48px;
+    font-weight: 400;
+}
+
 a {
     text-decoration: none;
 }
 
 li {
     list-style-type: none;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 body {

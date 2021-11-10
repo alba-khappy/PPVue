@@ -28,7 +28,13 @@ const routes = [
         path: '/user',
         name: 'user',
         component: () => import("../pages/user.vue")
+    },
+    {
+        path: '/rules',
+        name: 'rules',
+        component: () => import("../pages/rules.vue")
     }
+
 ]
 
 const router = new VueRouter({

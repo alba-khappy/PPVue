@@ -24,7 +24,7 @@ export default {
   width: 255px;
   height: 30px;
   padding: 5px 10px;
-  border: 1px solid #a6a5a9;
+  border: 1px solid $grayColor3;
   font-size: 14px;
 
   &:after {
@@ -34,7 +34,7 @@ export default {
     height: 10px;
     position: absolute;
     right: 13px;
-    top: 7px;
+    top: 10px;
     color: $blackColorText;
   }
 }
@@ -45,9 +45,13 @@ export default {
   left: -1px;
   top: 30px;
   background-color: $whiteColor;
-  padding: 5px 10px;
-  border: 1px solid #a6a5a9;
+  padding: 5px 10px 0;
+  border: 1px solid $grayColor3;
   z-index: 999;
+}
+
+.options-dropdown__item {
+    margin-bottom: 5px;
 }
 
 </style>

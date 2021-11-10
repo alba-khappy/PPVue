@@ -30,11 +30,11 @@ export default {
 
 .checkbox label {
   position: relative;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 18px;
   color: #a4a9b9;
   background-color: #e4e4e4;
-  padding: 0 7px;
+  padding: 2px 10px;
   margin-right: 10px;
 
     &::before {
@@ -42,7 +42,7 @@ export default {
       position: absolute;
       width: 100%;
       height: 18px;
-      top: 0px;
+      top: 0;
     }
 }
 

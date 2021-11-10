@@ -30,7 +30,7 @@
             .container.about--container
                 ul.about__list
                     li.about__list-item
-                        a.about__a(href="#")
+                        a.about__a(href="/search")
                             include ../assets/about1.svg
                             p.about__p Государственные вузы
                     li.about__list-item
@@ -38,7 +38,7 @@
                             include ../assets/about2.svg
                             p.about__p Направления подготовки
                     li.about__list-item
-                        a.about__a(href="#")
+                        a.about__a(href="/rules")
                             include ../assets/about3.svg
                             p.about__p Правила поступления
 
@@ -89,7 +89,7 @@
                         li.services__list-item(v-for="(service, index) in servicesArray")
                             a.services__a(
                                 :style="{ backgroundImage: 'url(' + require('../assets/' + service.servicesImg) + ')' }",
-                                href="https://myskills.ru/"
+                                :href="service.serviceLink"
                             )
                             p.services__p {{ service.servicesP }}
                         a(href="#").button-next.services__button-next
@@ -171,15 +171,17 @@
                     },
                 ],
                 servicesArray: [
-                    {
+                    {   serviceLink: "https://myskills.ru/",
                         servicesImg: "services1.png",
                         servicesP: "Онлайн-сервис самопроверки",
                     },
                     {
+                        serviceLink: "https://priemvuz.ru/",
                         servicesImg: "services2.png",
                         servicesP: "Проверка результатов ЕГЭ",
                     },
                     {
+                        serviceLink: "http://check.ege.edu.ru/",
                         servicesImg: "services3.png",
                         servicesP: "Официальный информационный портал ЕГЭ",
                     },

@@ -1,8 +1,8 @@
 <template lang="pug">
     li.university-item
-        //img(:src="require(`../assets/${logo}`)").university-logo
-        h2.university-name
-        p.university-location
+        img(:src="require(`../assets/${logo}`)").university-logo
+        h2.university-name {{name}}
+        p.university-location {{location}}
         button.university-btn-like.university-btn
         button.university-btn-add.university-btn
 </template>
@@ -24,7 +24,7 @@
     .university-item {
         display: grid;
         grid-template-columns: 65px 1fr auto;
-        grid-template-rows: repeat(2,1fr);
+        grid-template-rows: repeat(2, auto);
         border-bottom: 1px solid $grayColor2;
         column-gap: 30px;
         padding: 40px 0;
