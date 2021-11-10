@@ -1,8 +1,8 @@
 <template lang="pug">
     li.university-item
         //img(:src="require(`../assets/${logo}`)").university-logo
-        h2.university-name {{university.name}}
-        p.university-location {{university.location}}
+        h2.university-name
+        p.university-location
         button.university-btn-like.university-btn
         button.university-btn-add.university-btn
 </template>
@@ -10,25 +10,9 @@
 <script>
     export default {
         name: "university",
+        props: ["name", "location","logo"],
         data() {
             return {
-                universities: [
-                    {
-                        logo: "university1.png",
-                        name: "Донской государственный технический университет",
-                        location: "Ростовская область",
-                    },
-                    {
-                        logo: "university2.png",
-                        name: "Крымский федеральный университет имени В.И. Вернадского",
-                        location: "Республика Крым",
-                    },
-                    {
-                        logo: "university1.png",
-                        name: "Федеральное государственное бюджетное образовательное учреждение высшего образования «Донской государственный технический университет»",
-                        location: "Ростовская область",
-                    },
-                ],
             };
         },
     };

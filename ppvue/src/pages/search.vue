@@ -10,7 +10,7 @@ main
 
   section.container.search--section-university
     ul.university-list
-      universityItem(v-for="(university, index) in universities") {{university}}
+      universityItem(v-for="(university, index) in universities", :logo="university.logo", :name="university.name", :location="university.location") {{university}}
     .search--options
       dropdown(:dropdown-list="regions", :dropdown-title="regionTitle")
       h3.options-h3 Тип учебного заведения
@@ -41,6 +41,23 @@ import checkbox from "@/components/checkbox.vue";
 export default {
   data() {
     return {
+        universities: [
+            {
+                logo: "university1.png",
+                name: "Донской государственный технический университет",
+                location: "Ростовская область",
+            },
+            {
+                logo: "university2.png",
+                name: "Крымский федеральный университет имени В.И. Вернадского",
+                location: "Республика Крым",
+            },
+            {
+                logo: "university1.png",
+                name: "Федеральное государственное бюджетное образовательное учреждение высшего образования «Донской государственный технический университет»",
+                location: "Ростовская область",
+            },
+        ],
       regionTitle: "Выбрать субъект РФ",
       regions: ["Адыгея", "Москва", "Краснодар"],
       selectItemTitle: "Выбрать предмет",
