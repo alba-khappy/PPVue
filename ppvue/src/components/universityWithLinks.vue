@@ -2,18 +2,17 @@
     li.university-item
         img(:src="require(`../assets/${logo}`)").university-logo
         h2.university-name {{name}}
-        p.university-location {{location}}
-        div.university-btn--wrapper
-            button.university-btn-like.university-btn
-                include ../assets/like.svg
-            button.university-btn-add.university-btn
-                include ../assets/add.svg
+        div.university-links-wrapper
+            a(href="").university-link Страница приемной кампании
+            a(href="").university-link Правила приема
+            a(href="").university-link Число мест
+
 </template>
 
 <script>
     export default {
-        name: "university",
-        props: ["name", "location","logo"],
+        name: "universityWithLinks",
+        props: ["name","logo"],
         data() {
             return {
             };
@@ -27,7 +26,7 @@
     .university-item {
         display: grid;
         grid-template-columns: 65px 1fr auto;
-        grid-template-rows: repeat(2, auto);
+        grid-template-rows: auto 45px;
         column-gap: 30px;
         padding: 40px 0;
 
@@ -38,26 +37,33 @@
 
     .university-logo {
         grid-area: 1/1/3/2;
-        align-self: center;
     }
 
     .university-name {
         font-size: 18px;
         font-weight: 600;
-        align-self: end;
+        align-self: start;
     }
 
-    .university-location {
+    .university-links-wrapper {
+        display: flex;
+        justify-content: flex-start;
+        align-items: end;
         font-size: 14px;
         grid-area: 2/2/3/3;
-        align-self: end;
     }
 
-    .university-btn--wrapper {
-        display: flex;
-        flex-direction: column;
-        grid-row: 1/-1;
-        align-self: center;
+    .university-link {
+        font-size: 18px;
+        color: $grayColor3;
+
+        &:hover, &:focus {
+            color: $blueColor;
+        }
+
+        &:not(:last-child) {
+            margin-right: 70px;
+        }
     }
 
     .university-btn {
@@ -65,27 +71,16 @@
         height: 30px;
         background-color: transparent;
         border: none;
-        transition: 0.3s;
     }
 
     .university-btn-like {
+        background: url("../assets/like.svg") center no-repeat;
         grid-area: 1/3/2/4;
-
-        &:focus {
-            svg path{
-                stroke: $blueColor;
-            }
-        }
     }
 
     .university-btn-add {
+        background: url("../assets/add.svg") center no-repeat;
         grid-area: 2/3/3/4;
-
-        &:focus {
-            svg path{
-                fill: $blueColor;
-            }
-        }
     }
 
 </style>

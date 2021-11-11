@@ -41,7 +41,7 @@
 
         a {
             font-size: 14px;
-            color: $blueColorText;
+            color: $blueColor;
         }
 
         p {

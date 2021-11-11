@@ -21,6 +21,8 @@ export default {
 
 .options-dropdown {
   position: relative;
+  display: flex;
+  align-items: center;
   width: 255px;
   height: 30px;
   padding: 5px 10px;

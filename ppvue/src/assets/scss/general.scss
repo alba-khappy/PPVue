@@ -23,7 +23,7 @@
     src: url("/ppvue/src/assets/fonts/Raleway-Black.woff2") format("woff2"), url("/ppvue/src/assets/fonts/Raleway-Black.woff") format("woff");
 }
 
-$blueColorText: #0d5adc;
+$blueColor: #0d5adc;
 $blackColorText: #3b4157;
 $whiteColor: #ffffff;
 $grayColor1: #9eaec6;
@@ -37,13 +37,28 @@ $lightBlue: #f4f9fc;
 }
 
 @mixin inputFocus {
-        border: 1px solid $blueColorText;
+        border: 1px solid $blueColor;
         outline: none;
 }
 
 @mixin h1Style {
     font-size: 48px;
     font-weight: 400;
+}
+
+@mixin inputStyle {
+  height: 50px;
+  border: 1px solid $grayColor3;
+  background-color: $whiteColor;
+}
+
+@mixin btnTransparent {
+    border: 2px solid $blueColor;
+    color: $blueColor;
+    text-transform: uppercase;
+    background-color: $whiteColor;
+    font-size: 12px;
+    font-weight: 600;
 }
 
 a {
@@ -89,3 +104,6 @@ body {
     overflow: hidden;
   }
 
+.section-blue-background {
+  background-color: $lightBlue;
+}

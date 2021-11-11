@@ -18,7 +18,7 @@ footer.footer
 @import "../assets/scss/general.scss";
 
 .footer {
-    background-color: $blueColorText;
+    background-color: $blueColor;
     color: $whiteColor;
 }
 

@@ -18,7 +18,7 @@
         width: 60px;
         height: 30px;
         padding: 5px 10px;
-        border: 1px solid #A6A5A9;
+        border: 1px solid $grayColor3;
         font-size: 14px;
         margin-right: 10px;
 

@@ -35,7 +35,7 @@ header.header
 }
 
 .header--logo-p {
-    color: $blueColorText;
+    color: $blueColor;
     align-self: center;
 }
 

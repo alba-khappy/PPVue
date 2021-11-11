@@ -251,7 +251,7 @@
         }
 
         &:active, &:hover {
-            background-color: #0d5adc;
+            background-color: $blueColor;
         }
     }
 
@@ -305,7 +305,7 @@
         grid-column: 1/2;
         align-self: start;
         display: inline-block;
-        background-color: $blueColorText;
+        background-color: $blueColor;
         color: $whiteColor;
         padding: 20px 30px;
         max-width: 232px;
@@ -452,17 +452,17 @@
         align-items: center;
         box-shadow: 0 16px 16px #dde6eb;
         padding: 20px 0 20px 20px;
-        color: #0d5adc;
-        background-color: #ffffff;
+        color: $blueColor;
+        background-color: $whiteColor;
         transition: 0.3s;
 
         &:hover {
-            background-color: #0d5adc;
-            color: #ffffff;
+            background-color: $blueColor;
+            color: $whiteColor;
             box-shadow: 0 16px 16px #acafb1;
 
             svg path{
-                fill: #ffffff;
+                fill: $whiteColor;
             }
         }
     }
@@ -532,7 +532,7 @@
     }
 
     .admission__grid--border {
-        border: 2px solid $blueColorText;
+        border: 2px solid $blueColor;
     }
 
     .admission__grid-img {
@@ -548,7 +548,7 @@
 
     .admission__grid-p {
         max-width: 200px;
-        color: #3b4157;
+        color: $blackColorText;
     }
 
     .admission__p-wrapper {
@@ -561,12 +561,12 @@
 
     .admission__grid-p--blue {
         display: block;
-        color: $blueColorText;
+        color: $blueColor;
         margin-right: 20px;
     }
 
     .p--first-word {
-        color: $blueColorText;
+        color: $blueColor;
     }
 
     .admission--condition {
@@ -746,7 +746,7 @@
         font-weight: 500;
         font-size: 12px;
         line-height: 14px;
-        color: #cdcfd2;
+        color: $grayColor2;
     }
 
     .news--container {
@@ -901,7 +901,7 @@
     }
 
     .services__p {
-        color: #3B4157;
+        color: $blackColorText;
     }
 
     .services__a {
@@ -915,7 +915,7 @@
         transition: 0.3s;
 
         &:hover {
-            border: 1px solid #0D5ADC;
+            border: 1px solid $blueColor;
         }
     }
 

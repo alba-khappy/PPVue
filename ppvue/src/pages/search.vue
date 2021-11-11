@@ -1,12 +1,12 @@
 <template lang="pug">
     main
-        div.section-compare--background
-            section.container.search--section-compare
+        div.section-blue-background
+            section.container.search--section-container
                 h1.search--h1 Вузы
                 input.search--main-input
                 .search--compare-selected
                     p.search--compare-text В списке сравнения 4 вуза
-                    button.search--compare-button Сравнить
+                    button.search--btn-compare Сравнить
                     button.button-close
 
         section.container.search--section-university
@@ -17,15 +17,15 @@
             .search--options
                 dropdown(:dropdown-list="regions", :dropdown-title="regionTitle")
                 h3.options-h3 Тип учебного заведения
-                checkbox(:checkbox-label="type", v-for="(type, index) in types")
+                checkbox(:checkbox-label="type", :checkbox-id="'type' + index", v-for="(type, index) in types")
                 h3.options-h3 Форма обучения
-                checkbox(:checkbox-label="form", v-for="(form, index) in forms")
+                checkbox(:checkbox-label="form", :checkbox-id="'form' + index", v-for="(form, index) in forms")
                 h3.options-h3 Баллы ЕГЭ
                 dropdown(:dropdown-list="selectItem", :dropdown-title="selectItemTitle")
                 selected-item
                 selected-item
                 h3.options-h3 Стоимость обучения
-                checkbox(:checkbox-label="cost", v-for="(cost, index) in costs")
+                checkbox(:checkbox-label="cost", :checkbox-id="'cost' + index", v-for="(cost, index) in costs")
                 .options--input-wrapper
                     span от
                     input.options__input-cost(type="number")
@@ -33,9 +33,9 @@
                     input.options__input-cost(type="number")
                     span ₽ в год
                 h3.options-h3 Уровень образования
-                checkbox(:checkbox-label="level", v-for="(level, index) in levels")
+                checkbox(:checkbox-label="level", :checkbox-id="'level' + index", v-for="(level, index) in levels")
                 h3.options-h3 Дополнительно
-                checkbox(:checkbox-label="variant", v-for="(variant, index) in variants")
+                checkbox(:checkbox-label="variant", :checkbox-id="'variant' + index", v-for="(variant, index) in variants")
 
 </template>
 
@@ -122,11 +122,7 @@
         padding: 0 165px;
     }
 
-    .section-compare--background {
-        background-color: $lightBlue;
-    }
-
-    .search--section-compare {
+    .search--section-container {
         padding: 80px 165px 55px;
     }
 
@@ -154,10 +150,9 @@
     }
 
     .search--main-input {
+        @include inputStyle;
         max-width: 920px;
         width: 100%;
-        height: 50px;
-        border: 1px solid $grayColor3;
         margin-bottom: 40px;
         padding: 5px 20px;
         background: $whiteColor url("../assets/loupe.svg") no-repeat 98% center;
@@ -172,14 +167,10 @@
         margin-right: 20px;
     }
 
-    .search--compare-button {
-        border: 2px solid $blueColorText;
-        color: $blueColorText;
-        text-transform: uppercase;
+    .search--btn-compare {
+        @include btnTransparent;
         padding: 8px 34px;
-        background-color: $whiteColor;
         margin-right: 55px;
-        font-size: 12px;
     }
 
     .button-close {
@@ -214,6 +205,10 @@
 
     @media (max-width: 1080px) and (min-width: 769px) {
 
+        .search--section-container {
+            padding: 80px 40px 55px;
+        }
+
         .search--section-compare {
             padding: 80px 40px 55px;
         }
@@ -225,8 +220,17 @@
 
     @media (max-width: 768px) {
 
+        .search--section-container {
+            padding: 80px 15px 55px;
+        }
+
         .search--options {
             display: none;
+        }
+
+        .search--main-input {
+            background: url("../assets/loupe.svg") no-repeat 2% center,
+                        url("../assets/add.svg") no-repeat 98% center;
         }
 
         .section-university--wrapper {
@@ -241,7 +245,7 @@
             padding: 0 15px;
         }
 
-        .search--compare-button {
+        .search--btn-compare {
             margin-right: 20px;
         }
     }
@@ -252,7 +256,7 @@
             column-gap: 15px;
         }
 
-        .search--compare-button {
+        .search--btn-compare {
             padding: 8px 15px;
         }
     }

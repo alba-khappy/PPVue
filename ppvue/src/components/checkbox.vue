@@ -1,17 +1,18 @@
 <template lang="pug">
 .checkbox
-  input#checkbox.visually-hidden(
+  input.visually-hidden(
     type="checkbox",
     name="checkbox",
     v-model="checked",
+    :id="checkboxId"
   )
-  label(for="checkbox") {{ checkboxLabel }}
+  label(:for="checkboxId") {{ checkboxLabel }}
 </template>
 
 <script>
 export default {
   name: "checkbox",
-  props: ["checkboxLabel"],
+  props: ["checkboxLabel", "checkboxId"],
   data() {
     return {
       checked: [],
@@ -48,7 +49,7 @@ export default {
 
 .checkbox input:checked + label {
   color: $whiteColor;
-  background-color: $blueColorText;
+  background-color: $blueColor;
 }
 
 .checkbox input:checked + label::after {
