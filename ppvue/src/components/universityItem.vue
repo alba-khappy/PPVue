@@ -6,14 +6,14 @@
         div.university-btn--wrapper
             button.university-btn-like.university-btn
                 include ../assets/like.svg
-            button.university-btn-add.university-btn
+            button.university-btn-add.university-btn(v-show="visible")
                 include ../assets/add.svg
 </template>
 
 <script>
     export default {
         name: "university",
-        props: ["name", "location","logo"],
+        props: ["name", "location","logo", "visible"],
         data() {
             return {
             };
@@ -73,7 +73,8 @@
 
         &:focus {
             svg path{
-                stroke: $blueColor;
+                fill: #EF4058;
+                stroke: #EF4058;
             }
         }
     }

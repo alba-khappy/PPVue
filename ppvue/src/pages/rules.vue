@@ -6,14 +6,14 @@
                 img(src="../assets/hat.svg")
         div.rules--container-search.container
             section.rules--section-search
-                p.rules--text Искать по названию:
-                p.rules--text Регионы РФ:
-                p.rules--text Сбросить фильтр
+                p.rules--text-style Искать по названию:
+                p.rules--text-style Регионы РФ:
+                button.rules--text-style.rules--btn-reset Сбросить фильтр
                 input(type="text").rules--input-search
                 dropdown(:dropdown-list="selectItem", :dropdown-title="selectItemTitle").rules--option-dropdown
                 button.rules--btn-search Поиск
-                div
-                    checkbox(:checkbox-label="type", :checkbox-id="'type' + index", v-for="(type, index) in types").rules--checkbox
+                div.rules--checkbox
+                    checkbox(:checkbox-label="type", :checkbox-id="'type' + index", v-for="(type, index) in types")
         div.rules--universities.container
             universityWithLinks(v-for="university in universities",:logo="university.logo", :name="university.name", :location="university.location")
 </template>
@@ -71,15 +71,21 @@
 
     .rules--h1 {
         @include h1Style;
+        margin-right: 40px;
     }
 
-    .rules--text {
+    .rules--btn-reset {
+        border: none;
+        background-color: transparent;
+    }
+
+    .rules--text-style {
         font-size: 18px;
     }
 
     .rules--section-search {
         display: grid;
-        grid-template-columns: 1fr repeat(2, auto);
+        grid-template-columns: 1fr 1fr auto;
         grid-template-rows: repeat(3, auto);
         gap: 23px 45px;
     }
@@ -98,7 +104,7 @@
     }
 
     .rules--checkbox {
-        grid-area: 1/2/3/3;
+        grid-area: 3/1/4/3;
     }
 
     .rules--universities {
@@ -106,7 +112,7 @@
     }
 
     .rules--option-dropdown {
-        justify-self: end;
+        justify-self: start;
         width: 380px;
         height: 50px;
 
@@ -120,6 +126,39 @@
         }
     }
 
+    @media (max-width: 1150px) and (min-width: 769px) {
+
+        .rules--section-container {
+            padding: 80px 40px 55px;
+        }
+
+        .rules--container-search {
+            padding: 45px 40px 0;
+        }
+
+        .rules--universities {
+            padding: 50px 40px 55px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .rules--section-container {
+            padding: 80px 15px 55px;
+        }
+
+        .rules--container-search {
+            padding: 45px 15px 0;
+        }
+
+        .rules--universities {
+            padding: 50px 15px 55px;
+        }
+
+        .rules--section-search {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(8, auto);
+        }
+    }
 
 
 

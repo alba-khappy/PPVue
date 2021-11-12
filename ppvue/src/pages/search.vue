@@ -3,39 +3,46 @@
         div.section-blue-background
             section.container.search--section-container
                 h1.search--h1 Вузы
-                input.search--main-input
+                form.search__form
+                    input.search--main-input
+                    button.search__btn--viewing
+                    span.search__btn--customization
                 .search--compare-selected
                     p.search--compare-text В списке сравнения 4 вуза
                     button.search--btn-compare Сравнить
                     button.button-close
 
         section.container.search--section-university
-            div.section-university--wrapper
-                ul
-                    universityItem(v-for="university in universities",:logo="university.logo", :name="university.name", :location="university.location")
-                pagination
-            .search--options
-                dropdown(:dropdown-list="regions", :dropdown-title="regionTitle")
-                h3.options-h3 Тип учебного заведения
-                checkbox(:checkbox-label="type", :checkbox-id="'type' + index", v-for="(type, index) in types")
-                h3.options-h3 Форма обучения
-                checkbox(:checkbox-label="form", :checkbox-id="'form' + index", v-for="(form, index) in forms")
-                h3.options-h3 Баллы ЕГЭ
-                dropdown(:dropdown-list="selectItem", :dropdown-title="selectItemTitle")
-                selected-item
-                selected-item
-                h3.options-h3 Стоимость обучения
-                checkbox(:checkbox-label="cost", :checkbox-id="'cost' + index", v-for="(cost, index) in costs")
-                .options--input-wrapper
-                    span от
-                    input.options__input-cost(type="number")
-                    span до
-                    input.options__input-cost(type="number")
-                    span ₽ в год
-                h3.options-h3 Уровень образования
-                checkbox(:checkbox-label="level", :checkbox-id="'level' + index", v-for="(level, index) in levels")
-                h3.options-h3 Дополнительно
-                checkbox(:checkbox-label="variant", :checkbox-id="'variant' + index", v-for="(variant, index) in variants")
+                div.section-university--wrapper
+                    ul
+                        universityItem(v-for="university in universities",
+                            :logo="university.logo",
+                            :name="university.name",
+                            :location="university.location",
+                            :visible="true")
+                    pagination
+                .search--options
+                    dropdown(:dropdown-list="regions", :dropdown-title="regionTitle")
+                    h3.options-h3 Тип учебного заведения
+                    checkbox(:checkbox-label="type", :checkbox-id="'type' + index", v-for="(type, index) in types")
+                    h3.options-h3 Форма обучения
+                    checkbox(:checkbox-label="form", :checkbox-id="'form' + index", v-for="(form, index) in forms")
+                    h3.options-h3 Баллы ЕГЭ
+                    dropdown(:dropdown-list="selectItem", :dropdown-title="selectItemTitle")
+                    selected-item
+                    selected-item
+                    h3.options-h3 Стоимость обучения
+                    checkbox(:checkbox-label="cost", :checkbox-id="'cost' + index", v-for="(cost, index) in costs")
+                    .options--input-wrapper
+                        span от
+                        input.options__input-cost(type="number")
+                        span до
+                        input.options__input-cost(type="number")
+                        span ₽ в год
+                    h3.options-h3 Уровень образования
+                    checkbox(:checkbox-label="level", :checkbox-id="'level' + index", v-for="(level, index) in levels")
+                    h3.options-h3 Дополнительно
+                    checkbox(:checkbox-label="variant", :checkbox-id="'variant' + index", v-for="(variant, index) in variants")
 
 </template>
 
@@ -89,9 +96,12 @@
                     "Отсрочка от армии",
                     "Инклюзивное образование",
                 ],
+                showOptions: false,
+                showUniversities: true,
             };
         },
-        methods: {},
+        methods: {
+        },
         components: {
             universityItem,
             dropdown,
@@ -100,6 +110,15 @@
             selectedItem
         },
     };
+
+        const btnCustomization = document.getElementsByClassName('search__btn--customization')[0];
+        const sectionUniversity = document.getElementsByClassName('section-university--wrapper')[0];
+        const sectionOptions = document.getElementsByClassName('section--options')[0];
+
+        // btnCustomization.addEventListener('click', function () {
+        //     sectionUniversity.classList.toggle('display-none');
+        // });
+
 </script>
 
 <style lang="scss">
@@ -149,17 +168,35 @@
         padding: 40px 0;
     }
 
+    .search__form {
+        display: grid;
+        max-width: 920px;
+    }
+
     .search--main-input {
+        grid-area: 1/1/2/2;
         @include inputStyle;
         max-width: 920px;
         width: 100%;
         margin-bottom: 40px;
         padding: 5px 20px;
-        background: $whiteColor url("../assets/loupe.svg") no-repeat 98% center;
 
         &:focus {
             @include inputFocus;
         }
+    }
+
+    .search__btn--viewing {
+        grid-area: 1/1/2/2;
+        justify-self: end;
+        background: transparent url("../assets/loupe.svg") no-repeat center;
+        width: 50px;
+        height: 50px;
+        border: none;
+    }
+
+    .search__btn--customization {
+        display: none;
     }
 
     .search--compare-text {
@@ -203,6 +240,10 @@
         }
     }
 
+    .display-none {
+        display: none;
+    }
+
     @media (max-width: 1080px) and (min-width: 769px) {
 
         .search--section-container {
@@ -229,8 +270,21 @@
         }
 
         .search--main-input {
-            background: url("../assets/loupe.svg") no-repeat 2% center,
-                        url("../assets/add.svg") no-repeat 98% center;
+            padding: 5px 40px;
+        }
+
+        .search__btn--viewing {
+            justify-self: start;
+        }
+
+        .search__btn--customization {
+            display: block;
+            grid-area: 1/1/2/2;
+            justify-self: end;
+            background: transparent url("../assets/add.svg") no-repeat center;
+            width: 50px;
+            height: 50px;
+            border: none;
         }
 
         .section-university--wrapper {
@@ -248,6 +302,7 @@
         .search--btn-compare {
             margin-right: 20px;
         }
+
     }
 
     @media (max-width: 374px) {
