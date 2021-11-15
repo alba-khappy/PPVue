@@ -3,10 +3,10 @@
         div.section-blue-background
             section.container.search--section-container
                 div.search--h1-container
-                    h1.search--h1 
-                        a(href="/search") Вузы
+                    h1.search--h1.search-h1--disabled
+                        span Вузы
                     h1.search--h1
-                        a(href="/directions").search-h1--disabled Направления
+                        span Направления
                 form.search__form
                     input.search--main-input
                     button.search__btn--viewing
@@ -19,11 +19,10 @@
         section.container.search--section-university
                 div.section-university--wrapper
                     ul
-                        universityItem(v-for="university in universities",
-                            :logo="university.logo",
-                            :name="university.name",
-                            :location="university.location",
-                            :visible="true")
+                        directionsWithCode(v-for="dir in allDir",
+                            :logo="dir.logo",
+                            :code="dir.code",
+                            :direction="dir.direction")
                     pagination
                 .search--options
                     dropdown(:dropdown-list="regions", :dropdown-title="regionTitle")
@@ -56,25 +55,26 @@
     import checkbox from "@/components/checkbox.vue";
     import pagination from "@/components/pagination.vue";
     import selectedItem from "@/components/selectedItem.vue";
+    import chosenDirection from "@/components/chosenDirection.vue";
 
     export default {
         data() {
             return {
-                universities: [
+                allDir: [
                     {
                         logo: "university1.png",
-                        name: "Донской государственный технический университет",
-                        location: "Ростовская область",
+                        name:"Университет 1",
+                        direction: "Менеджмент",
                     },
                     {
                         logo: "university2.png",
-                        name: "Крымский федеральный университет имени В.И. Вернадского",
-                        location: "Республика Крым",
+                        name:"Университет 2",
+                        direction: "Информатика",
                     },
                     {
                         logo: "university1.png",
-                        name: "Федеральное государственное бюджетное образовательное учреждение высшего образования «Донской государственный технический университет»",
-                        location: "Ростовская область",
+                        name:"Университет 3",
+                        direction: "Математика",
                     },
                 ],
                 regionTitle: "Выбрать субъект РФ",
@@ -111,9 +111,11 @@
             dropdown,
             checkbox,
             pagination,
-            selectedItem
+            selectedItem,
+            chosenDirection
         },
     };
+
 </script>
 
 <style lang="scss">
@@ -124,6 +126,7 @@
     }
 
     .section-university--wrapper {
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -160,17 +163,13 @@
         margin-bottom: 45px;
         @include h1Style;
 
-        a {
-            color: $blackColorText;
-        }
-
-        a.search-h1--disabled {
-            color: $grayColor3;
-        }
-
         &:first-child {
             margin-right: 40px;
         }
+    }
+
+    .search-h1--disabled {
+        color: $grayColor3;
     }
 
     .search--options {

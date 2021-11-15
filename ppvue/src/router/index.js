@@ -33,8 +33,22 @@ const routes = [
         path: '/rules',
         name: 'rules',
         component: () => import("../pages/rules.vue")
+    },
+    {
+        path: '/directions',
+        name: 'directions',
+        component: () => import("../pages/directions.vue")
+    },
+    {
+        path: '/directionsWithParameter',
+        name: 'directionsWithParameter',
+        component: () => import("../pages/directionsWithParameter.vue")
+    },
+    {
+        path: '/profile',
+        name: 'profile',
+        component: () => import("")
     }
-
 ]
 
 const router = new VueRouter({

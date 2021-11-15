@@ -79,6 +79,11 @@
 
     .user--h1 {
         @include h1Style;
+        margin-bottom: 60px;
+    }
+
+    .user--account-text {
+        font-size: 18px;
     }
 
     .user--account {
@@ -86,8 +91,10 @@
         grid-template-columns: auto 1fr;
         grid-template-rows: repeat(2, auto);
         background-color: $whiteColor;
-        padding: 30px;
+        padding: 35px 30px;
         box-shadow: 0 16px 16px #DDE6EB;
+        gap: 30px 40px;
+        margin-bottom: 60px;
     }
 
     .user--account-logo {
@@ -97,30 +104,33 @@
     .user--submit-application {
         width: 315px;
         @include btnTransparent;
-        padding: 15px 25px;
+        padding: 13px 24px;
+        text-align: center;
     }
 
     .user--subjects-wrapper {
         display: flex;
+        margin-bottom: 40px;
     }
 
     .user--h2-subjects {
         font-size: 32px;
-        margin-right: 10px;
+        margin-right: 20px;
         font-weight: 500;
     }
 
     .user__btn--edit {
         border: none;
         background: transparent url("../assets/pen.svg") no-repeat left;
-        padding-left: 15px;
+        padding-left: 20px;
         color: $blueColor;
     }
 
     .user__list {
+        max-width: 70%;
         display: grid;
         grid-template-columns: repeat(2, auto);
-        column-gap: 30px;
+        gap: 20px 30px;
     }
 
     .user__item {
@@ -129,6 +139,7 @@
     }
 
     .user__subject {
+        width: 200px;
         font-size: 18px;
         margin-right: 15px;
     }
@@ -146,6 +157,7 @@
     .user--h2-favourites {
         font-size: 32px;
         font-weight: 500;
+        margin-bottom: 40px;
     }
 
 </style>
