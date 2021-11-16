@@ -8,7 +8,7 @@
                     p.user--account-text Привязка учетной записи портала Госуслуг позволит вам при подаче заявления на поступление в вуз онлайн через Госуслуги получить доступ к избранным вузам, сохраненным в личном кабинете портала Поступай Правильно.
                     a(href="/").user--submit-application Подать заявление в вузы онлайн
                 div.user--subjects-wrapper
-                    h2.user--h2-subjects Предметы и баллы ЕГЭ
+                    h2.h2.user--h2-subjects Предметы и баллы ЕГЭ
                     button.user__btn--edit Редактировать
                 ul.user__list
                     li.user__item
@@ -22,7 +22,7 @@
                         span.user__points 99
 
         section.container.user--section-favourites
-            h2.user--h2-favourites Избранное
+            h2.h2.user--h2-favourites Избранное
             checkbox(:checkbox-label="category", :checkbox-id="'category' + index", v-for="(category, index) in categories")
             ul
                 universityItem(v-for="university in universities",
@@ -114,9 +114,7 @@
     }
 
     .user--h2-subjects {
-        font-size: 32px;
         margin-right: 20px;
-        font-weight: 500;
     }
 
     .user__btn--edit {
@@ -155,8 +153,6 @@
     }
 
     .user--h2-favourites {
-        font-size: 32px;
-        font-weight: 500;
         margin-bottom: 40px;
     }
 
