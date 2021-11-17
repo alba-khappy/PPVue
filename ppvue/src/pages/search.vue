@@ -276,6 +276,10 @@
             padding: 80px 15px 55px;
         }
 
+        .search--h1-container {
+            flex-direction: column;
+        }
+
         .search--options {
             display: none;
         }

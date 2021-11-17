@@ -2,7 +2,6 @@
     li.direction__item
         p.direction__code {{code}}
         p.direction__name {{direction}}
-        
 </template>
 
 <script>
@@ -32,6 +31,7 @@
         grid-area: 1/1/3/2;
         align-self: center;
         width: 100px;
+        font-weight: 600;
     }
 
     .direction__name {

@@ -3,23 +3,19 @@
         div.section-blue-background
             section.container.search--section-container
                 div.search--h1-container
-                    h1.search--h1.search-h1--disabled
-                        span Вузы
                     h1.search--h1
-                        span Направления
+                        a(href="/search").search-h1--disabled Вузы
+                    h1.search--h1
+                        a(href="/directions") Направления
                 form.search__form
                     input.search--main-input
                     button.search__btn--viewing
                     span.search__btn--customization
-                .search--compare-selected
-                    p.search--compare-text В списке сравнения 4 вуза
-                    button.search--btn-compare Сравнить
-                    button.button-close
 
         section.container.search--section-university
                 div.section-university--wrapper
                     ul
-                        directionsWithCode(v-for="dir in allDir",
+                        directions-list-with-code(v-for="dir in allDir",
                             :logo="dir.logo",
                             :code="dir.code",
                             :direction="dir.direction")
@@ -55,7 +51,7 @@
     import checkbox from "@/components/checkbox.vue";
     import pagination from "@/components/pagination.vue";
     import selectedItem from "@/components/selectedItem.vue";
-    import directionsWithCode from "@/components/directionsWithCode.vue";
+    import directionsListWithCode from "@/components/directionsListWithCode.vue";
 
     export default {
         data() {
@@ -112,7 +108,7 @@
             checkbox,
             pagination,
             selectedItem,
-            directionsWithCode
+            directionsListWithCode
         },
     };
 
@@ -162,6 +158,14 @@
     .search--h1 {
         margin-bottom: 45px;
         @include h1Style;
+
+        a {
+            color: $blackColorText;
+        }
+
+        a.search-h1--disabled {
+            color: $grayColor3;
+        }
 
         &:first-child {
             margin-right: 40px;
@@ -273,6 +277,10 @@
 
         .search--section-container {
             padding: 80px 15px 55px;
+        }
+
+        .search--h1-container {
+            flex-direction: column;
         }
 
         .search--options {

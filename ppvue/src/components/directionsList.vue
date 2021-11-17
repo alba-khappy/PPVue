@@ -1,20 +1,20 @@
 <template lang="pug">
-    li.university-item
-        img(:src="require(`../assets/${logo}`)").university-logo
-        p {{direction}}
-        h2.university-name {{name}}
-        p Уровень образования:  бакалавриат
-        p Форма обучения: очная
-        div.university-btn--wrapper
-            button.university-btn-like.university-btn
+    li.university__item
+        img(:src="require(`../assets/${logo}`)").university__logo
+        p.university__chosen-direction {{direction}}
+        h2.university__name {{name}}
+        p.university__level Уровень образования:  бакалавриат
+        p.university__form Форма обучения: очная
+        div.university__btn--wrapper
+            button.university__btn-like.university-btn
                 include ../assets/like.svg
-            button.university-btn-add.university-btn(v-show="visible")
+            button.university__btn-add.university-btn
                 include ../assets/add.svg
 </template>
 
 <script>
     export default {
-        name: "chosenDirection",
+        name: "directionsList",
         props: ["name", "direction","logo"],
         data() {
             return {
@@ -26,7 +26,7 @@
 <style lang="scss">
     @import "../assets/scss/general.scss";
 
-    .university-item {
+    .university__item {
         display: grid;
         grid-template-columns: 65px 1fr auto;
         grid-template-rows: repeat(2, auto);
@@ -38,12 +38,28 @@
         }
     }
 
-    .university-logo {
+    .university__chosen-direction  {
+        grid-area: 1/2/2/3;
+        align-self: end;
+        font-size: 18px;
+    }
+
+    .university__level {
+        grid-area: 2/2/3/3;
+        align-self: end;
+        font-size: 14px;
+    }
+
+    .university__form {
+        font-size: 14px;
+    }
+
+    .university__logo {
         grid-area: 1/1/3/2;
         align-self: center;
     }
 
-    .university-name {
+    .university__name {
         font-size: 18px;
         font-weight: 600;
         align-self: end;
@@ -55,7 +71,7 @@
         align-self: end;
     }
 
-    .university-btn--wrapper {
+    .university__btn--wrapper {
         display: flex;
         flex-direction: column;
         grid-row: 1/-1;
@@ -70,7 +86,7 @@
         transition: 0.3s;
     }
 
-    .university-btn-like {
+    .university__btn-like {
         grid-area: 1/3/2/4;
 
         &:focus {
@@ -81,7 +97,7 @@
         }
     }
 
-    .university-btn-add {
+    .university__btn-add {
         grid-area: 2/3/3/4;
 
         &:focus {

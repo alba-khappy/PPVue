@@ -34,7 +34,7 @@
                             include ../assets/about1.svg
                             p.about__p Государственные вузы
                     li.about__list-item
-                        a.about__a(href="#")
+                        a.about__a(href="/directions")
                             include ../assets/about2.svg
                             p.about__p Направления подготовки
                     li.about__list-item
