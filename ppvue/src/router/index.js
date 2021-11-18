@@ -53,6 +53,11 @@ const routes = [
         path: '/chosenDirection',
         name: 'chosenDirection',
         component: () => import("../pages/chosenDirection.vue")
+    },
+    {
+        path: '/compare',
+        name: 'compare',
+        component: () => import("../pages/compare.vue")
     }
 ]
 

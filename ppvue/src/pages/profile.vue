@@ -366,7 +366,7 @@ main {
   &:before {
     content: "";
     position: absolute;
-    background: url("../assets/bonus.svg") no-repeat left;
+    background: url("../assets/presence.svg") no-repeat left;
     width: 20px;
     height: 20px;
     left: 18px;
