@@ -30,7 +30,6 @@ export default {
   position: relative;
   padding: 30px;
   background-color: $whiteColor;
-  position: relative;
   box-shadow: 0 16px 16px #dde6eb;
 }
 

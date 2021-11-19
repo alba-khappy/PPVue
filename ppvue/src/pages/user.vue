@@ -156,4 +156,41 @@
         margin-bottom: 40px;
     }
 
+    @media (max-width: 1080px) and (min-width: 769px) {
+        .user--section-container {
+            padding: 80px 40px 55px;
+        }
+
+        .user--section-favourites {
+            padding: 80px 40px 55px;
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        .user--section-container {
+            padding: 80px 15px 55px;
+        }
+
+        .user--section-favourites {
+            padding: 80px 15px 55px;
+        }
+
+        .user--account {
+            grid-template-columns: auto;
+            grid-template-rows: repeat(3, auto);
+            gap: 15px 0;
+        }
+
+        .user__list {
+            grid-template-columns: auto;
+            max-width: 100%;
+        }
+
+        .user--submit-application {
+            width: 280px;
+        }
+
+    }
+
 </style>

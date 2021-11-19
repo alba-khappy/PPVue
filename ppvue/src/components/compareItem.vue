@@ -1,15 +1,18 @@
 <template lang="pug">
     li.compare__university-item
-        img(src="../assets/university1.png")
-        button.compare__university-button.compare--button-close
-        button.compare__university-button.compare--button-like
-        p.compare__university-name Федеральное государственное бюджетное образовательное учреждение высшего образования «Донской государственный технический университет»
+        img(:src="require(`../assets/${logo}`)")
+        div.compare__button-wrapper
+            button.compare__university-button.compare--button-close
+                include ../assets/button-close.svg
+            button.compare__university-button.compare--button-like(v-show="visible")
+                include ../assets/like.svg
+        p.compare__university-name {{name}}
 </template>
 
 <script>
 export default {
   name: "compareItem",
-  //props: ["img", "name", "visible"],
+  props: ["logo", "name", "visible"],
   data() {
     return {
     };
@@ -24,36 +27,52 @@ export default {
     display: grid;
     grid-template-columns: repeat(2, auto);
     grid-template-rows: repeat(2, auto);
+    min-width: 255px;
     width: 255px;
     height: auto;
+    min-height: 160px;
     padding: 10px;
     border: 1px solid $grayColor2;
+
+    &:not(:last-child) {
+        margin-right: 30px;
+    }
 
     &:hover, &:focus {
         border: 1px solid $blueColor;
     }
 }
 
+.compare__button-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
 .compare__university-button {
     grid-area: 1/2/2/3;
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     justify-self: end;
 }
 
 .compare__university-name {
+    grid-area: 2/1/3/3;
    font-size: 12px; 
 }
 
 .compare--button-close {
-    background: transparent url('../assets/button-close.svg') center no-repeat;
+    background: transparent center no-repeat;
 }
 
 .compare--button-like {
-    background: transparent url('../assets/like.svg') center no-repeat;
+    background: transparent center no-repeat;
     align-self: end;
-    background-size: 50%;
+
+    svg {
+        height: 16px;
+    }
 }
 
 

@@ -58,6 +58,11 @@ const routes = [
         path: '/compare',
         name: 'compare',
         component: () => import("../pages/compare.vue")
+    },
+    {
+        path: '/searchOptions',
+        name: 'searchOptions',
+        component: () => import("../pages/searchOptions.vue")
     }
 ]
 

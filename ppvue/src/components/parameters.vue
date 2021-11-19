@@ -42,6 +42,8 @@ export default {
 @import "../assets/scss/general.scss";
 
 .compare-parameters {
+    flex-grow: 1;
+
     h2 {
         font-size: 18px;
         font-weight: 400;
