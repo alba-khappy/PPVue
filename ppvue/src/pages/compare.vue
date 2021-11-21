@@ -108,11 +108,11 @@
                     tr.compare__table-row
                         td(v-if="parameters[0]")
                             h2.compare__row-heading Инклюзивность
-                            span(v-if="inclusiveness").parameter-presence
-                            span(v-else).parameter-absence
+                            span(:class="{ 'parameter-absence': !parameters[0].inclusiveness, 'parameter-presence': parameters[0].inclusiveness}")
+
                         td(v-for="(i, ind) in Array(parameters.length-1)")
-                            span(v-if="inclusiveness").parameter-presence {{parameters[ind+1].inclusiveness}}
-                            span(v-else).parameter-absence  {{parameters[ind+1].inclusiveness}}
+                            span(:class="{ 'parameter-absence': !parameters[ind+1].inclusiveness, 'parameter-presence': parameters[ind+1].inclusiveness}")
+
 </template>
 
 <script>
@@ -137,7 +137,7 @@
                         application: "true",
                         hostel: "true",
                         postponement: "true",
-                        inclusiveness: "false",
+                        inclusiveness: false,
                     },
                     {
                         region: "Ростовская область",
@@ -151,7 +151,7 @@
                         application: "true",
                         hostel: "true",
                         postponement: "true",
-                        inclusiveness: "true",
+                        inclusiveness: true,
                     }
                 ],
                 universitiesList: [
