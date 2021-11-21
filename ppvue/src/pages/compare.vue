@@ -29,126 +29,90 @@
             section.container.compare--section-container.parameters-container
                 table.compare__table
                     tr.compare__table-row
-                        td
+                        td(v-if="parameters[0]")
                             h2.compare__row-heading Регион
-                            p 1
-                        td
-                            p 2
-                        td
-                            p 3
-                        td
-                            p 4
-                    tr.compare__table-row
-                        td
-                            h2.compare__row-heading Тип вуза
-                            p 1
-                        td
-                            p 2
-                        td
-                            p 2
-                        td
-                            p 2
-                    tr.compare__table-row
-                        td
-                            h2.compare__row-heading Форма обучения
-                            p 1
-                        td
-                            p 2
-                        td
-                            p 2
-                        td
-                            p 2
-                    tr.compare__table-row
-                        td
-                            h2.compare__row-heading Уровень образования
-                            p 1
-                        td
-                            p 2
-                        td
-                            p 2
-                        td
-                            p 2
-                    tr.compare__table-row
-                        td
-                            h2.compare__row-heading Бюджетных мест
-                            p 1
-                        td
-                            p 2
-                        td
-                            p 2
-                        td
-                            p 2
-                    tr.compare__table-row
-                        td
-                            h2.compare__row-heading Внебюджетных мест
-                            p 1
-                        td
-                            p 2
-                        td
-                            p 2
-                        td
-                            p 2
-                    tr.compare__table-row
-                        td
-                            h2.compare__row-heading Стоимость за год обучения
-                            p 1
-                        td
-                            p 2
-                        td
-                            p 2
-                        td
-                            p 2
-                    tr.compare__table-row
-                        td
-                            h2.compare__row-heading Средний проходной балл ЕГЭ
-                            p 1
-                        td
-                            p 2
-                        td
-                            p 2
-                        td
-                            p 2
-                    tr.compare__table-row
-                        td
-                            h2.compare__row-heading Подать заявление онлайн
-                            p 1
-                        td
-                            p 2
-                        td
-                            p 2
-                        td
-                            p 2
+                            span {{parameters[0].region}}
+                        td(v-for="(i, ind) in Array(parameters.length-1)")
+                            span {{parameters[ind+1].region}}
 
                     tr.compare__table-row
-                        td
+                        td(v-if="parameters[0]")
+                            h2.compare__row-heading Тип вуза
+                            span {{parameters[0].type}}
+                        td(v-for="(i, ind) in Array(parameters.length-1)")
+                            span {{parameters[ind+1].type}}
+
+                    tr.compare__table-row
+                        td(v-if="parameters[0]")
+                            h2.compare__row-heading Форма обучения
+                            span {{parameters[0].form}}
+                        td(v-for="(i, ind) in Array(parameters.length-1)")
+                            span {{parameters[ind+1].form}}
+
+                    tr.compare__table-row
+                        td(v-if="parameters[0]")
+                            h2.compare__row-heading Уровень образования
+                            span {{parameters[0].level}}
+                        td(v-for="(i, ind) in Array(parameters.length-1)")
+                            span {{parameters[ind+1].level}}
+
+                    tr.compare__table-row
+                        td(v-if="parameters[0]")
+                            h2.compare__row-heading Бюджетных мест
+                            span {{parameters[0].budget}}
+                        td(v-for="(i, ind) in Array(parameters.length-1)")
+                            span {{parameters[ind+1].budget}}
+
+                    tr.compare__table-row
+                        td(v-if="parameters[0]")
+                            h2.compare__row-heading Внебюджетных мест
+                            span {{parameters[0].offBudget}}
+                        td(v-for="(i, ind) in Array(parameters.length-1)")
+                            span {{parameters[ind+1].offBudget}}
+
+                    tr.compare__table-row
+                        td(v-if="parameters[0]")
+                            h2.compare__row-heading Стоимость за год обучения
+                            span {{parameters[0].cost}}
+                        td(v-for="(i, ind) in Array(parameters.length-1)")
+                            span {{parameters[ind+1].cost}}
+
+                    tr.compare__table-row
+                        td(v-if="parameters[0]")
+                            h2.compare__row-heading Средний проходной балл ЕГЭ
+                            span {{parameters[0].score}}
+                        td(v-for="(i, ind) in Array(parameters.length-1)")
+                            span {{parameters[ind+1].score}}
+
+                    tr.compare__table-row
+                        td(v-if="parameters[0]")
+                            h2.compare__row-heading Подать заявление онлайн
+                            span {{parameters[0].application}}
+                        td(v-for="(i, ind) in Array(parameters.length-1)")
+                            span {{parameters[ind+1].application}}
+
+                    tr.compare__table-row
+                        td(v-if="parameters[0]")
                             h2.compare__row-heading Общежитие
-                            p 1
-                        td
-                            p 2
-                        td
-                            p 2
-                        td
-                            p 2
+                            span {{parameters[0].hostel}}
+                        td(v-for="(i, ind) in Array(parameters.length-1)")
+                            span {{parameters[ind+1].hostel}}
+
                     tr.compare__table-row
-                        td
+                        td(v-if="parameters[0]")
                             h2.compare__row-heading Отсрочка от армии
-                            p 1
-                        td
-                            p 2
-                        td
-                            p 2
-                        td
-                            p 2
+                            span {{parameters[0].postponement}}
+                        td(v-for="(i, ind) in Array(parameters.length-1)")
+                            span {{parameters[ind+1].postponement}}
+
                     tr.compare__table-row
-                        td
+                        td(v-if="parameters[0]")
                             h2.compare__row-heading Инклюзивность
-                            p 1
-                        td
-                            p 2
-                        td
-                            p 2
-                        td
-                            p 2
+                            span(v-if="inclusiveness").parameter-presence
+                            span(v-else).parameter-absence
+                        td(v-for="(i, ind) in Array(parameters.length-1)")
+                            span(v-if="inclusiveness").parameter-presence {{parameters[ind+1].inclusiveness}}
+                            span(v-else).parameter-absence  {{parameters[ind+1].inclusiveness}}
 </template>
 
 <script>
@@ -187,7 +151,7 @@
                         application: "true",
                         hostel: "true",
                         postponement: "true",
-                        inclusiveness: "false",
+                        inclusiveness: "true",
                     }
                 ],
                 universitiesList: [
@@ -278,6 +242,8 @@
 
     .compare__university-list {
         display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
         margin-bottom: 30px;
     }
 
@@ -341,7 +307,7 @@
         border-bottom: 1px solid $grayColor2;
         position: relative;
 
-        p {
+        span {
             grid-row: 2;
         }
     }
@@ -356,6 +322,18 @@
         font-weight: 400;
         color: $grayColor3;
         text-transform: uppercase;
+    }
+
+    .parameter-absence {
+        width: 25px;
+        height: 25px;
+        background: transparent url("../assets/absence.svg") left no-repeat;
+    }
+
+    .parameter-presence {
+        width: 25px;
+        height: 25px;
+        background: transparent url("../assets/presence.svg") left no-repeat;
     }
 
 

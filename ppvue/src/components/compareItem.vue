@@ -34,10 +34,6 @@ export default {
     padding: 10px;
     border: 1px solid $grayColor2;
 
-    &:not(:last-child) {
-        margin-right: 30px;
-    }
-
     &:hover, &:focus {
         border: 1px solid $blueColor;
     }
