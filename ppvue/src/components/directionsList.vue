@@ -15,7 +15,20 @@ li.university__item
 <script>
 export default {
   name: "directionsList",
-  props: ["name", "direction", "logo"],
+  props: {
+    name: {
+      type:String,
+      required: true,
+    },
+    direction: {
+      type:String,
+      required: true,
+    },
+    logo: {
+      type:String,
+      required: true,
+    }
+  },
   data() {
     return {};
   },

@@ -210,34 +210,34 @@ export default {
         {
           logo: "university1.png",
           name: "Донской государственный технический университет",
-          visible: "false",
+          visible: false,
         },
         {
           logo: "university2.png",
           name: "Крымский федеральный университет имени В.И. Вернадского",
-          visible: "false",
+          visible: false,
         },
         {
           logo: "university1.png",
           name: "Федеральное государственное бюджетное образовательное учреждение высшего образования «Донской государственный технический университет»",
-          visible: "false",
+          visible: false,
         },
         {
           logo: "university1.png",
           name: "Федеральное государственное бюджетное образовательное учреждение высшего образования «Донской государственный технический университет»",
-          visible: "false",
+          visible: false,
         },
       ],
       compareUniversities: [
         {
           logo: "university1.png",
           name: "Донской государственный технический университет",
-          visible: "true",
+          visible: true,
         },
         {
           logo: "university2.png",
           name: "Крымский федеральный университет имени В.И. Вернадского",
-          visible: "true",
+          visible: true,
         },
       ],
     };

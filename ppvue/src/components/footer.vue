@@ -5,12 +5,10 @@ footer.footer
       .logo-wrapper.footer--logo-wrapper
         include ../assets/logo.svg
         p.footer--logo-p.logo-p ПОСТУПАЙ ПРАВИЛЬНО
-
     .footer__error
       p Нашли ошибку?
       p.footer--error-p-info Сообщите нам на почту
       a(href="") supportpp@digitalobr.ru
-
     .footer__quote © При цитировании информации с сайта ссылка на первоисточник обязательна
 </template>
 

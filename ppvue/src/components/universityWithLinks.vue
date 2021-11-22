@@ -12,7 +12,16 @@ li.university-item
 <script>
 export default {
   name: "universityWithLinks",
-  props: ["name", "logo"],
+  props: {
+    name: {
+      type:String,
+      required: true,
+    },
+    logo: {
+      type:String,
+      required: true,
+    },
+  },
   data() {
     return {};
   },

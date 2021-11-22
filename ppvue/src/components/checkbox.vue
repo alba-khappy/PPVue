@@ -12,7 +12,16 @@
 <script>
 export default {
   name: "checkbox",
-  props: ["checkboxLabel", "checkboxId"],
+  props: {
+    checkboxLabel: {
+      type:String,
+      required: true,
+      }, 
+    checkboxId: {
+      type:String,
+      required: true,
+    },
+},
   data() {
     return {
       checked: [],

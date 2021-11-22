@@ -12,7 +12,20 @@ li.general-info__item
 <script>
 export default {
   name: "info",
-  props: ["heading", "visible", "image"],
+  props: {
+    heading: {
+      type:String,
+      required: true,
+    },
+    visible: {
+      type:Boolean,
+      required: true,
+    },
+    image: {
+      type:String,
+      required: true,
+    },
+  },
   data() {
     return {
       show: false,

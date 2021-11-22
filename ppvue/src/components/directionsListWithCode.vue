@@ -7,7 +7,16 @@ li.direction__item
 <script>
 export default {
   name: "directionsWithCode",
-  props: ["code", "direction"],
+  props: {
+    code: {
+      type:String,
+      required: true,
+    },
+    direction: {
+      type:String,
+      required: true,
+    },
+  },
   data() {
     return {};
   },

@@ -12,7 +12,20 @@ li.compare__university-item
 <script>
 export default {
   name: "compareItem",
-  props: ["logo", "name", "visible"],
+  props: {
+    logo: {
+      type:String,
+      required: true,
+    },
+    name: {
+      type:String,
+      required: true,
+    },
+    visible: {
+      type:Boolean,
+      required: true,
+    }
+  },
   data() {
     return {};
   },

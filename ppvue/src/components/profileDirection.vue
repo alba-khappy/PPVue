@@ -12,7 +12,24 @@ li
 
 <script>
 export default {
-  props: ["h3", "date", "level", "form"],
+  props: {
+    h3: {
+      type:String,
+      required: true,
+    },
+    date: {
+      type:String,
+      required: true,
+    },
+    level: {
+      type:String,
+      required: true,
+    },
+    form: {
+      type:String,
+      required: true,
+    },
+  },
   data() {
     return {
     };

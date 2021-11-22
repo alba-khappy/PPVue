@@ -43,7 +43,7 @@ main
         :logo="university.logo",
         :name="university.name",
         :location="university.location",
-        :visible="false"
+        :visible="false",
       )
 </template>
 

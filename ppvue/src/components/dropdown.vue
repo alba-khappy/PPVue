@@ -7,7 +7,16 @@
 <script>
 export default {
   name: "dropdown",
-  props: ["dropdownList", "dropdownTitle"],
+  props: {
+    dropdownList: {
+      type:Array,
+      required: true,
+    },
+    dropdownTitle: {
+      type:String,
+      required: true,
+    },
+  },
   data() {
     return {
       show: false,
