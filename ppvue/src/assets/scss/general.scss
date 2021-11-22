@@ -6,7 +6,8 @@
 
 @font-face {
     font-family: "Raleway";
-    src: url("/ppvue/src/assets/fonts/Raleway-Regular.woff") format("woff"), url("/ppvue/src/assets/fonts/Raleway-Regular.ttf") format("truetype");
+    src: url("/ppvue/src/assets/fonts/Raleway-Regular.woff") format("woff"),
+        url("/ppvue/src/assets/fonts/Raleway-Regular.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
 }
@@ -14,13 +15,15 @@
 @font-face {
     font-family: "Raleway";
     font-weight: 700;
-    src: url("/ppvue/src/assets/fonts/Raleway-Bold.woff2") format("woff2"), url("/ppvue/src/assets/fonts/Raleway-Bold.woff") format("woff");
+    src: url("/ppvue/src/assets/fonts/Raleway-Bold.woff2") format("woff2"),
+        url("/ppvue/src/assets/fonts/Raleway-Bold.woff") format("woff");
 }
 
 @font-face {
     font-family: "Raleway";
     font-weight: 900;
-    src: url("/ppvue/src/assets/fonts/Raleway-Black.woff2") format("woff2"), url("/ppvue/src/assets/fonts/Raleway-Black.woff") format("woff");
+    src: url("/ppvue/src/assets/fonts/Raleway-Black.woff2") format("woff2"),
+        url("/ppvue/src/assets/fonts/Raleway-Black.woff") format("woff");
 }
 
 $blueColor: #0d5adc;
@@ -28,8 +31,9 @@ $blackColorText: #3b4157;
 $whiteColor: #ffffff;
 $grayColor1: #9eaec6;
 $grayColor2: #cdcfd2;
-$grayColor3: #A6A5A9;
+$grayColor3: #a6a5a9;
 $lightBlue: #f4f9fc;
+$greenColor: #36935b;
 
 @mixin displayFlexSpaceBetween {
     display: flex;
@@ -37,8 +41,8 @@ $lightBlue: #f4f9fc;
 }
 
 @mixin inputFocus {
-        border: 1px solid $blueColor;
-        outline: none;
+    border: 1px solid $blueColor;
+    outline: none;
 }
 
 @mixin h1Style {
@@ -47,9 +51,9 @@ $lightBlue: #f4f9fc;
 }
 
 @mixin inputStyle {
-  height: 50px;
-  border: 1px solid $grayColor3;
-  background-color: $whiteColor;
+    height: 50px;
+    border: 1px solid $grayColor3;
+    background-color: $whiteColor;
 }
 
 @mixin btnTransparent {
@@ -61,13 +65,27 @@ $lightBlue: #f4f9fc;
     font-weight: 600;
 }
 
+@mixin btnBlue {
+    background-color: $blueColor;
+    color: $whiteColor;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: 0.3s;
+
+    &:hover {
+        background-color: #2f76ef;
+      }
+}
+
 @mixin boldText {
-  font-size: 18px;
-  font-weight: 600;
+    font-size: 18px;
+    font-weight: 600;
 }
 
 a {
     text-decoration: none;
+    color: $blackColorText;
 }
 
 li {
@@ -81,6 +99,10 @@ button:hover {
 body {
     background-color: $whiteColor;
     font-family: "Raleway", sans-serif;
+}
+
+main {
+    color: $blackColorText;
 }
 
 .container {
@@ -107,9 +129,8 @@ body {
     clip-path: inset(100%);
     clip: rect(0 0 0 0);
     overflow: hidden;
-  }
-
-.section-blue-background {
-  background-color: $lightBlue;
 }
 
+.section-blue-background {
+    background-color: $lightBlue;
+}

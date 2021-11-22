@@ -11,7 +11,10 @@ main
       button.rules--text-style.rules--btn-reset Сбросить фильтр
       input.rules--input-search(type="text", disabled)
       button.search__btn--viewing
-      dropdown.rules--option-dropdown(:dropdown-list="selectItem", :dropdown-title="selectItemTitle")
+      dropdown.rules--option-dropdown(
+        :dropdown-list="selectItem",
+        :dropdown-title="selectItemTitle"
+      )
       button.rules--btn-search Поиск
       .rules--checkbox
         checkbox(
@@ -101,7 +104,7 @@ export default {
 }
 
 .rules--input-search {
-    grid-area: 2/1/3/2;
+  grid-area: 2/1/3/2;
   @include inputStyle;
   padding: 5px 20px;
 
@@ -140,13 +143,13 @@ export default {
 }
 
 .search__btn--viewing {
-        grid-area: 2/1/3/2;
-        justify-self: end;
-        background: transparent url("../assets/loupe.svg") no-repeat center;
-        width: 50px;
-        height: 50px;
-        border: none;
-    }
+  grid-area: 2/1/3/2;
+  justify-self: end;
+  background: transparent url("../assets/loupe.svg") no-repeat center;
+  width: 50px;
+  height: 50px;
+  border: none;
+}
 
 @media (max-width: 1150px) and (min-width: 769px) {
   .rules--section-search {
@@ -154,7 +157,7 @@ export default {
   }
 
   .university-link:not(:last-child) {
-      margin-right: 20px;
+    margin-right: 20px;
   }
 
   p.rules--text-style {
@@ -193,31 +196,30 @@ export default {
 }
 
 @media (max-width: 768px) {
+  .university-item {
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
+  }
 
-    .university-item {
-        grid-template-rows: repeat(2, auto);
-        gap: 20px;
-    }
-    
-.university-links-wrapper {
+  .university-links-wrapper {
     flex-direction: column;
     align-items: start;
-}
+  }
 
   .rules--section-container {
     padding: 80px 15px 55px;
 
     img {
-        display: none;
+      display: none;
     }
   }
 
   .rules--option-dropdown {
-      width: 320px;
+    width: 320px;
 
-      ul {
-          width: 320px;
-      }
+    ul {
+      width: 320px;
+    }
   }
 
   .rules--container-search {
@@ -229,8 +231,8 @@ export default {
   }
 
   .university-link:not(:last-child) {
-      margin-right: 0;
-      margin-bottom: 15px;
+    margin-right: 0;
+    margin-bottom: 15px;
   }
 
   .rules--section-search {
@@ -256,16 +258,16 @@ export default {
   }
 
   .rules--option-dropdown {
-      grid-area: 4/1/5/3;
+    grid-area: 4/1/5/3;
   }
 
   .rules--btn-reset {
-      grid-area: 6/1/7/3;
-      justify-self: start;
+    grid-area: 6/1/7/3;
+    justify-self: start;
   }
 
   .rules--btn-search {
-      grid-area: 7/1/8/3;
+    grid-area: 7/1/8/3;
   }
 }
 </style>

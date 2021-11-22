@@ -1,6 +1,6 @@
 <template lang="pug">
 li
-  a(href="/chosenDirection").direction__link
+  a.direction__link(href="/chosenDirection")
     h3 {{ h3 }}
     button.direction__btn-like
       include ../assets/like.svg
@@ -14,7 +14,8 @@ li
 export default {
   props: ["h3", "date", "level", "form"],
   data() {
-    return {};
+    return {
+    };
   },
 };
 </script>
@@ -23,17 +24,17 @@ export default {
 @import "../assets/scss/general.scss";
 
 .direction__link {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    width: 100%;
-    max-width: 540px;
-    min-height: 180px;
-    background-color: $whiteColor;
-    padding: 30px;
-    row-gap: 20px;
-    box-shadow: 0 16px 16px #dde6eb;
-    color: $blackColorText;
-  }
+  display: grid;
+  grid-template-columns: 1fr auto;
+  width: 100%;
+  max-width: 540px;
+  min-height: 180px;
+  background-color: $whiteColor;
+  padding: 30px;
+  row-gap: 20px;
+  box-shadow: 0 16px 16px #dde6eb;
+  color: $blackColorText;
+}
 
 .direction__btn-like {
   align-self: start;
@@ -56,5 +57,12 @@ export default {
   p {
     margin-bottom: 5px;
   }
+}
+
+@media (max-width: 1080px) and (min-width: 769px) {
+   
+   .direction__link {
+     min-height: 250px;
+   }
 }
 </style>

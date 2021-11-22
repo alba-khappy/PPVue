@@ -5,7 +5,7 @@ li.general-info__item
   .general-info__container
     ul
       slot
-    img.general-info__img(v-if='image' :src="require(`../assets/${image}`)")
+    img.general-info__img(v-if="image", :src="require(`../assets/${image}`)")
   .general-info__popup(v-show="show") popup
 </template>
 

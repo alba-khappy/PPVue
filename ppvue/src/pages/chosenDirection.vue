@@ -50,12 +50,11 @@ main
 
         generalInfo(:heading="content.points.text", :visible="true")
           li.general-info__slot-item Информация отсутствует
-    div.popup--background(v-show="show")
-        div.popup--block
-            button.popup--button-close(@click="show = !show")
-                include ../assets/button-close.svg
-            p(v-for="languagesItem in languagesList") {{languagesItem}}
-
+    .popup--background(v-show="show")
+      .popup--block
+        button.popup--button-close(@click="show = !show")
+          include ../assets/button-close.svg
+        p(v-for="languagesItem in languagesList") {{ languagesItem }}
 </template>
 
 
@@ -85,39 +84,39 @@ export default {
           text: "Дополнительные баллы к ЕГЭ",
         },
       },
-        languagesList: [
-            "Азербайджанский",
-            "Албанский",
-            "Амхарский",
-            "Английский",
-            "Арабский",
-            "Армянский",
-            "Африкаанс",
-            "Баскский",
-            "Белорусский",
-            "Бенгальский",
-            "Бирманский",
-            "Болгарский",
-            "Боснийский",
-            "Валлийский",
-            "Венгерский",
-            "Азербайджанский",
-            "Албанский",
-            "Амхарский",
-            "Английский",
-            "Арабский",
-            "Армянский",
-            "Африкаанс",
-            "Баскский",
-            "Белорусский",
-            "Бенгальский",
-            "Бирманский",
-            "Болгарский",
-            "Боснийский",
-            "Валлийский",
-            "Венгерский"
-        ],
-        show: false,
+      languagesList: [
+        "Азербайджанский",
+        "Албанский",
+        "Амхарский",
+        "Английский",
+        "Арабский",
+        "Армянский",
+        "Африкаанс",
+        "Баскский",
+        "Белорусский",
+        "Бенгальский",
+        "Бирманский",
+        "Болгарский",
+        "Боснийский",
+        "Валлийский",
+        "Венгерский",
+        "Азербайджанский",
+        "Албанский",
+        "Амхарский",
+        "Английский",
+        "Арабский",
+        "Армянский",
+        "Африкаанс",
+        "Баскский",
+        "Белорусский",
+        "Бенгальский",
+        "Бирманский",
+        "Болгарский",
+        "Боснийский",
+        "Валлийский",
+        "Венгерский",
+      ],
+      show: false,
     };
   },
   components: {
@@ -128,10 +127,6 @@ export default {
 
 <style lang="scss">
 @import "../assets/scss/general.scss";
-
-main {
-  color: $blackColorText;
-}
 
 .choice--section-container {
   display: flex;
@@ -238,39 +233,39 @@ main {
 
 /*popup*/
 .popup--background {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.2);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .popup--block {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 5px 20px;
-    position: relative;
-    background-color: $whiteColor;
-    color: $blackColorText;
-    padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 5px 20px;
+  position: relative;
+  background-color: $whiteColor;
+  color: $blackColorText;
+  padding: 30px;
 }
 
 .popup--button-close {
-    background: transparent no-repeat;
-    border: none;
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    top: -20px;
-    right: -5px;
+  background: transparent no-repeat;
+  border: none;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: -20px;
+  right: -5px;
 
-    svg path {
-        fill: $whiteColor;
-    }
+  svg path {
+    fill: $whiteColor;
+  }
 }
 
 @media (max-width: 1300px) and (min-width: 769px) {

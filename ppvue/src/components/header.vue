@@ -1,81 +1,89 @@
 <template lang="pug">
 header.header 
-    div.container.header--container 
-        a(href="/").logo-wrapper
-            include ../assets/logo.svg
-            p.header--logo-p.logo-p ПОСТУПАЙ ПРАВИЛЬНО
-        a(href="/user").header--entrance-a
-            p.header--entrance-p Войти
-            svg(width='32' height='32' viewbox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg')
-                path(d='M27.3137 4.68625C24.2917 1.6643 20.2737 0 16 0C11.7261 0 7.70825 1.6643 4.68628 4.68625C1.66431 7.7082 0 11.726 0 15.9999C0 20.2736 1.66431 24.2916 4.68628 27.3136C7.70825 30.3355 11.7261 31.9998 16 31.9998C20.2737 31.9998 24.2917 30.3355 27.3137 27.3136C30.3357 24.2916 32 20.2736 32 15.9999C32 11.726 30.3357 7.7082 27.3137 4.68625ZM8.02124 27.649C8.69043 23.796 12.0293 20.954 16 20.954C19.9709 20.954 23.3096 23.796 23.9788 27.649C21.707 29.2098 18.9585 30.1248 16 30.1248C13.0415 30.1248 10.293 29.2098 8.02124 27.649ZM10.9126 13.9916C10.9126 11.1862 13.1948 8.90424 16 8.90424C18.8052 8.90424 21.0874 11.1865 21.0874 13.9916C21.0874 16.7968 18.8052 19.079 16 19.079C13.1948 19.079 10.9126 16.7968 10.9126 13.9916ZM25.6028 26.3485C25.0981 24.5548 24.0959 22.9274 22.6912 21.6561C21.8293 20.8761 20.8484 20.2606 19.7937 19.8268C21.7 18.5834 22.9626 16.4323 22.9626 13.9916C22.9626 10.1525 19.8391 7.02925 16 7.02925C12.1609 7.02925 9.0376 10.1525 9.0376 13.9916C9.0376 16.4323 10.3003 18.5834 12.2063 19.8268C11.1519 20.2606 10.1707 20.8758 9.30884 21.6559C7.9043 22.9271 6.90186 24.5545 6.39722 26.3482C3.61768 23.7669 1.875 20.0834 1.875 15.9999C1.875 8.21138 8.21143 1.87499 16 1.87499C23.7886 1.87499 30.125 8.21138 30.125 15.9999C30.125 20.0836 28.3823 23.7672 25.6028 26.3485Z' fill='#3B4157')
+  .container.header--container 
+    a.logo-wrapper(href="/")
+      include ../assets/logo.svg
+      p.header--logo-p.logo-p ПОСТУПАЙ ПРАВИЛЬНО
+    a.header--entrance-a(href="/user")
+      p.header--entrance-p Войти
+      svg(
+        width="32",
+        height="32",
+        viewbox="0 0 32 32",
+        fill="none",
+        xmlns="http://www.w3.org/2000/svg"
+      )
+        path(
+          d="M27.3137 4.68625C24.2917 1.6643 20.2737 0 16 0C11.7261 0 7.70825 1.6643 4.68628 4.68625C1.66431 7.7082 0 11.726 0 15.9999C0 20.2736 1.66431 24.2916 4.68628 27.3136C7.70825 30.3355 11.7261 31.9998 16 31.9998C20.2737 31.9998 24.2917 30.3355 27.3137 27.3136C30.3357 24.2916 32 20.2736 32 15.9999C32 11.726 30.3357 7.7082 27.3137 4.68625ZM8.02124 27.649C8.69043 23.796 12.0293 20.954 16 20.954C19.9709 20.954 23.3096 23.796 23.9788 27.649C21.707 29.2098 18.9585 30.1248 16 30.1248C13.0415 30.1248 10.293 29.2098 8.02124 27.649ZM10.9126 13.9916C10.9126 11.1862 13.1948 8.90424 16 8.90424C18.8052 8.90424 21.0874 11.1865 21.0874 13.9916C21.0874 16.7968 18.8052 19.079 16 19.079C13.1948 19.079 10.9126 16.7968 10.9126 13.9916ZM25.6028 26.3485C25.0981 24.5548 24.0959 22.9274 22.6912 21.6561C21.8293 20.8761 20.8484 20.2606 19.7937 19.8268C21.7 18.5834 22.9626 16.4323 22.9626 13.9916C22.9626 10.1525 19.8391 7.02925 16 7.02925C12.1609 7.02925 9.0376 10.1525 9.0376 13.9916C9.0376 16.4323 10.3003 18.5834 12.2063 19.8268C11.1519 20.2606 10.1707 20.8758 9.30884 21.6559C7.9043 22.9271 6.90186 24.5545 6.39722 26.3482C3.61768 23.7669 1.875 20.0834 1.875 15.9999C1.875 8.21138 8.21143 1.87499 16 1.87499C23.7886 1.87499 30.125 8.21138 30.125 15.9999C30.125 20.0836 28.3823 23.7672 25.6028 26.3485Z",
+          fill="#3B4157"
+        )
 </template>
 
 <style lang="scss">
 @import "../assets/scss/general.scss";
 .header {
-    border-bottom: 1px solid #e0e4e7;
+  border-bottom: 1px solid #e0e4e7;
 }
 
 .header--container {
-    @include displayFlexSpaceBetween;
-    align-items: center;
-    padding: 24px 40px;
+  @include displayFlexSpaceBetween;
+  align-items: center;
+  padding: 24px 40px;
 }
 
 .logo-wrapper {
-    display: grid;
-    grid-template-columns: 60px 290px;
+  display: grid;
+  grid-template-columns: 60px 290px;
 }
 
 .logo-p {
-    align-self: center;
-    font-size: 18px;
-    font-weight: 900;
-    line-height: 21px;
+  align-self: center;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 21px;
 }
 
 .header--logo-p {
-    color: $blueColor;
-    align-self: center;
+  color: $blueColor;
+  align-self: center;
 }
 
 .header--entrance-a {
-    display: grid;
-    grid-template-columns: 60px 32px;
-    align-items: center;
+  display: grid;
+  grid-template-columns: 60px 32px;
+  align-items: center;
 }
 
 .header--entrance-p {
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 14px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: $blackColorText;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $blackColorText;
 }
 
 @media (max-width: 767px) {
+  .header--container {
+    padding: 25px 15px;
+  }
 
-    .header--container {
-        padding: 25px 15px;
-    }
+  .header--logo-p,
+  .header--entrance-p {
+    font-size: 12px;
+    line-height: 14px;
+  }
 
-    .header--logo-p, .header--entrance-p {
-        font-size: 12px;
-        line-height: 14px;
-    }
+  .logo-wrapper {
+    grid-template-columns: 45px 190px;
+  }
 
-    .logo-wrapper {
-        grid-template-columns: 45px 190px;
-    }
+  .logo-wrapper > svg {
+    width: 30px;
+  }
 
-    .logo-wrapper > svg {
-        width: 30px;
-    }
-
-    .header--entrance-a > svg {
-        transform: scale(0.7);
-    }
-
+  .header--entrance-a > svg {
+    transform: scale(0.7);
+  }
 }
 </style>

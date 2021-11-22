@@ -25,8 +25,8 @@ export default {
 @import "../assets/scss/general.scss";
 
 .checkbox {
-    display: inline-block;
-    margin-bottom: 10px;
+  display: inline-block;
+  margin-bottom: 10px;
 }
 
 .checkbox label {
@@ -38,13 +38,13 @@ export default {
   padding: 2px 10px;
   margin-right: 10px;
 
-    &::before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 18px;
-      top: 0;
-    }
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 18px;
+    top: 0;
+  }
 }
 
 .checkbox input:checked + label {

@@ -185,10 +185,6 @@ export default {
 <style lang="scss">
 @import "../assets/scss/general.scss";
 
-main {
-  color: $blackColorText;
-}
-
 .profile--section-container {
   padding: 80px 165px 55px;
 }
@@ -389,14 +385,12 @@ main {
 }
 
 .direction__btn {
+  @include btnBlue;
   width: 180px;
   height: 50px;
   display: block;
-  background-color: $blueColor;
   margin: 0 auto;
-  color: $whiteColor;
   border: none;
-  text-transform: uppercase;
   font-size: 12px;
 }
 
@@ -476,13 +470,13 @@ main {
   .profile__acceptance--link {
     grid-template-columns: repeat(2, auto);
     column-gap: 15px;
-        svg {
-            justify-self: right;
-        }
+    svg {
+      justify-self: right;
+    }
 
-        p {
-            justify-self: left;
-        }
+    p {
+      justify-self: left;
+    }
   }
 
   .profile__acceptance--item {
