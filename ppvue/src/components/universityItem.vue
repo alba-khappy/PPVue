@@ -90,4 +90,11 @@ export default {
     }
   }
 }
+
+@media (max-width: 768px) {
+  
+  .university-link {
+    gap: 10px 30px;
+  }
+}
 </style>

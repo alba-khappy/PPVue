@@ -9,7 +9,7 @@ main
       p.rules--text-style Искать по названию:
       p.rules--text-style Регионы РФ:
       button.rules--text-style.rules--btn-reset Сбросить фильтр
-      input.rules--input-search(type="text", disabled)
+      input.rules--input-search(type="text")
       button.search__btn--viewing
       dropdown.rules--option-dropdown(
         :dropdown-list="selectItem",

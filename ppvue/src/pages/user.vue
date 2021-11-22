@@ -116,6 +116,7 @@ export default {
 
 .user--account-logo {
   grid-area: 1/1/3/2;
+  width: 115px;
 }
 
 .user--submit-application {
@@ -213,6 +214,31 @@ export default {
   .user--section-favourites {
     padding: 80px 40px 55px;
   }
+}
+
+@media (max-width: 1080px) {
+
+.user__choice-subject {
+    flex-direction: column;
+  }
+
+  .user__wrapper-button {
+    flex-direction: column;
+    align-self: start;
+  }
+
+   .user__dropdown {
+    margin-bottom: 20px;
+  }
+
+  .user__subject-button {
+    margin: 0;
+
+    &:first-child {
+      margin-bottom: 20px;
+    }
+  }
+
 }
 
 @media (max-width: 768px) {

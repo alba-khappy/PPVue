@@ -66,9 +66,15 @@ main
         )
           li.general-info__slot-item от 200 000 ₽ до 300 000 ₽ в год
         generalInfo(:visible="false")
-          li.general-info__bonus-item Военно-учебный центр
-          li.general-info__bonus-item Отсрочка от армии
-          li.general-info__bonus-item Инклюзивное обучение
+          li.general-info__bonus-item 
+            img(src="../assets/absence.svg")
+            p Военно-учебный центр
+          li.general-info__bonus-item 
+            img(src="../assets/presence.svg")
+            p Отсрочка от армии
+          li.general-info__bonus-item 
+            img(src="../assets/absence.svg") 
+            p Инклюзивное обучение
       h2.h2.direction__h2 Направления подготовки
       ul.direction__list
         profileDirection(
@@ -354,22 +360,18 @@ export default {
 }
 
 .general-info__bonus-item {
+  display: flex;
   position: relative;
   @include boldText;
   margin-bottom: 30px;
-  padding-left: 50px;
-
-  &:before {
-    content: "";
-    position: absolute;
-    background: url("../assets/presence.svg") no-repeat left;
-    width: 20px;
-    height: 20px;
-    left: 18px;
-  }
 
   &:first-child {
     padding-top: 20px;
+  }
+
+  img {
+    filter: grayscale(1) brightness(1);
+    margin-right: 20px;
   }
 }
 
