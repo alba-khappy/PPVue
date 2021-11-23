@@ -154,18 +154,6 @@ export default {
   padding: 80px 165px 55px;
 }
 
-.search--compare-selected {
-  max-width: 920px;
-  width: 100%;
-  background-color: $whiteColor;
-  display: grid;
-  align-items: center;
-  grid-template-columns: 1fr auto auto;
-  padding: 25px 30px;
-  border: none;
-  box-shadow: 0 16px 16px #dde6eb;
-}
-
 .search--h1-container {
   display: flex;
 }

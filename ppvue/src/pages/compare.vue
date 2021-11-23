@@ -322,10 +322,8 @@ export default {
   width: 190px;
   display: block;
   @include btnTransparent;
-  margin: 0 auto;
-  padding: 15px;
-  margin-bottom: 50px;
-  margin-top: 50px;
+    padding: 15px;
+    margin: 50px auto;
 }
 
 .compare__checkbox--style {

@@ -15,7 +15,6 @@ export default {
   props: {
     heading: {
       type:String,
-      required: true,
     },
     visible: {
       type:Boolean,
@@ -23,7 +22,6 @@ export default {
     },
     image: {
       type:String,
-      required: true,
     },
   },
   data() {
@@ -51,7 +49,7 @@ export default {
   width: 25px;
   height: 25px;
   right: 10px;
-  top: 30px;
+  top: 28px;
   background: url("../assets/inf.svg") no-repeat;
   border: none;
 }

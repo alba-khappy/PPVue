@@ -28,8 +28,7 @@ export default {
       required: true,
     },
     visible: {
-      type:String,
-      required: true,
+      type:Boolean,
     }
   },
   data() {

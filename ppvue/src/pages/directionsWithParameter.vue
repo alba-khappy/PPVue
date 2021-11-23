@@ -159,15 +159,15 @@ export default {
 }
 
 .search--compare-selected {
-  max-width: 920px;
-  width: 100%;
-  background-color: $whiteColor;
-  display: grid;
-  align-items: center;
-  grid-template-columns: 1fr auto auto;
-  padding: 25px 30px;
-  border: none;
-  box-shadow: 0 16px 16px #dde6eb;
+    max-width: 920px;
+    width: 100%;
+    background-color: $whiteColor;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr auto auto;
+    padding: 25px 30px;
+    border: none;
+    box-shadow: 0 16px 16px #dde6eb;
 }
 
 .search--h1-container {
